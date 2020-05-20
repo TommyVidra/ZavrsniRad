@@ -1,3 +1,7 @@
+package com.example.menzaapp;
+
+import android.os.AsyncTask;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -6,37 +10,79 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.TreeMap;
+import java.util.concurrent.ExecutionException;
 
 public class Crawler {
 
-    public static void main (String[] args) throws IOException {
+    public static String lunchMenu = "";
+    public static String lunchVegMenu = "";
 
-        //Map containing line work times
-        TreeMap<String, String> LineMenu = new TreeMap<>();
+    public static String dinerMenu = "";
+    public static String dinerVegMenu = "";
 
-        //To Do: napraviti metodu za connect
-        Document savska = Jsoup.connect("http://www.sczg.unizg.hr/prehrana/restorani/savska/").get();
-        Elements content = savska.select("div[class=newsItem subpage]");
+    public static String lunchSide  = "";
+    public static String lunchChoice = "";
+
+    public static String dinerSide = "";
+    public static String dinerChoice = "";
+
+    public static void ScLijevo() throws IOException, ExecutionException, InterruptedException {
+
+            //Map containing line work times
+            TreeMap<String, String> LineMenu = new TreeMap<>();
+
+            Connection.myTask task = new Connection.myTask();
+            task.execute();
+            Elements content = task.get();
+
+            //String canteenSC = content.select("p[style]").first().text();
 
 
-        //first column -- canteen name -- Savska restoran
-        String canteenSC = content.select("p[style]").first().text();
+            //first column Canteen work info
+            Element mainContent1 = content.get(0);
+            //second column Canteen food menu
+            Elements mainContent2 = returnContent(content.get(1), "p");
+            //date of the menu, and the canteen
+            String date = wordFormater(mainContent2.select("p").get(1).text());
+            //line of canteen in SC
+            String line = wordFormater(mainContent2.select("p").get(3).text());
+            //non menu food
+            LinkedList<String> nonMenufood = nonMenuFood(mainContent2, "p");
+            //menus for lunch, diner
+            LinkedList<String> menuFood = menuFood(mainContent2, "p");
+            String meni = "";
+            String nonMeni = "";
+            System.out.println(menuFood.size() + " " + nonMenufood.size());
 
+            int counter = 0;
+            for(String s : menuFood)
+            {
+                if(counter == 0)
+                    lunchMenu = s;
+                else if(counter == 1)
+                    lunchVegMenu = s;
+                else if(counter == 2)
+                    dinerMenu = s;
+                else
+                    dinerVegMenu = s;
+                ++counter;
+            }
+            counter = 0;
+            for(String s: nonMenufood)
+            {
+                if(counter == 0)
+                    lunchChoice = s;
+                else if(counter == 1)
+                    lunchSide = s;
+                else if(counter == 2)
+                    dinerChoice = s;
+                else
+                    dinerSide = s;
+                ++counter;
+            }
+            System.out.println(nonMenufood.toString());
 
-        //first column Canteen work info
-        Element mainContent1 = content.get(0);
-        //second column Canteen food menu
-        Elements mainContent2 = returnContent(content.get(1), "p");
-        //date of the menu, and the canteen
-        String date = wordFormater(mainContent2.select("p").get(1).text());
-        //line of canteen in SC
-        String line = wordFormater(mainContent2.select("p").get(3).text());
-        //non menu food
-        LinkedList<String> nonMenufood = nonMenuFood(mainContent2, "p");
-        //menus for lunch, diner
-        LinkedList<String> menuFood = menuFood(mainContent2, "p");
-        System.out.println(line);
-    }
+        }
 
     private static String wordFormater(String s)
     {
@@ -58,7 +104,7 @@ public class Crawler {
                     temp += tempArr[i].substring(0, 1).toUpperCase() + tempArr[i].toLowerCase().substring(1);
 
                 else if(tempArr[i].matches("\\d+.") || tempArr[i].matches("[a-z]."))
-                    temp += tempArr[i];
+                    temp += " " + tempArr[i];
 
                 else
                     temp +=" " + tempArr[i].toLowerCase();
