@@ -92,6 +92,7 @@
                 android:layout_marginBottom="8dp"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
+                android:onClick="animateIntentFER"
                 android:transitionName="@string/transition_string"
                 app:cardBackgroundColor="#01c7c7"
                 app:cardCornerRadius="8dp"

@@ -2,21 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1f262a"
     android:orientation="vertical"
     android:transitionName="@string/transition_string">
 
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#1f262a"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -308,5 +299,8 @@
                 android:paddingLeft="12dp"
                 android:textColor="#344d56" />
         </LinearLayout>
+
+
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

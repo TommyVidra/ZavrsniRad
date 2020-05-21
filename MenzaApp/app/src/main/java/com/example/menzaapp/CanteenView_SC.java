@@ -1,17 +1,26 @@
 package com.example.menzaapp;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.Navigation;
+
+import com.google.android.material.navigation.NavigationView;
+
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
-public class CanteenView_SC extends AppCompatActivity {
-
+public class CanteenView_SC extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         //Intent intent = getIntent();
         setContentView(R.layout.canteen);
         TextView txt = this.findViewById(R.id.menuContent);
@@ -82,6 +91,4 @@ public class CanteenView_SC extends AppCompatActivity {
 //        }
 
     }
-
-
 }

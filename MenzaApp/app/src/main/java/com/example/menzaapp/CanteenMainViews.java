@@ -47,5 +47,12 @@ public class CanteenMainViews extends AppCompatActivity {
             ActivityCompat.startActivity(this, intent, options.toBundle());
 
         }
+
+    public void animateIntentFER(View view) {
+
+//        Intent intent = new Intent(CanteenMainViews.this, test_view.class);
+//        startActivity(intent);
+
+    }
     }
 
