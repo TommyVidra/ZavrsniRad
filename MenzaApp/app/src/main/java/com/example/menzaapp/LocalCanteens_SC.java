@@ -1,18 +1,26 @@
 package com.example.menzaapp;
 
-import android.os.AsyncTask;
+import android.app.Application;
+import android.content.res.AssetManager;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.util.LinkedList;
 import java.util.TreeMap;
 import java.util.concurrent.ExecutionException;
 
-public class Crawler {
+public class LocalCanteens_SC {
 
     public static String lunchMenu = "";
     public static String lunchVegMenu = "";
@@ -28,60 +36,70 @@ public class Crawler {
 
     public static void ScLijevo() throws IOException, ExecutionException, InterruptedException {
 
-            //Map containing line work times
-            TreeMap<String, String> LineMenu = new TreeMap<>();
+        //Map containing line work times
+        TreeMap<String, String> LineMenu = new TreeMap<>();
+        //String canteenSC = content.select("p[style]").first().text();
+        Document doc = Jsoup.parse(configs.html, "UTF-8");
+        Elements content = doc.select("div[class=newsItem subpage]");
 
-            Connection.myTask task = new Connection.myTask();
-            task.execute();
-            Elements content = task.get();
+        //second column Canteen food menu
+        Elements mainContent2 = returnContent(content.get(1), "p");
+        //date of the menu, and the canteen
+        String date = wordFormater(mainContent2.select("p").get(1).text());
+        //line of canteen in SC
+        String line = wordFormater(mainContent2.select("p").get(3).text());
+        //non menu food
+        LinkedList<String> nonMenufood = nonMenuFood(mainContent2, "p");
+        //menus for lunch, diner
+        LinkedList<String> menuFood = menuFood(mainContent2, "p");
+        String meni = "";
+        String nonMeni = "";
 
-            //String canteenSC = content.select("p[style]").first().text();
-
-
-            //first column Canteen work info
-            Element mainContent1 = content.get(0);
-            //second column Canteen food menu
-            Elements mainContent2 = returnContent(content.get(1), "p");
-            //date of the menu, and the canteen
-            String date = wordFormater(mainContent2.select("p").get(1).text());
-            //line of canteen in SC
-            String line = wordFormater(mainContent2.select("p").get(3).text());
-            //non menu food
-            LinkedList<String> nonMenufood = nonMenuFood(mainContent2, "p");
-            //menus for lunch, diner
-            LinkedList<String> menuFood = menuFood(mainContent2, "p");
-            String meni = "";
-            String nonMeni = "";
-
-            int counter = 0;
-            for(String s : menuFood)
-            {
-                if(counter == 0)
-                    lunchMenu = s;
-                else if(counter == 1)
-                    lunchVegMenu = s;
-                else if(counter == 2)
-                    dinerMenu = s;
-                else
-                    dinerVegMenu = s;
-                ++counter;
-            }
-            counter = 0;
-            for(String s: nonMenufood)
-            {
-                if(counter == 0)
-                    lunchChoice = s;
-                else if(counter == 1)
-                    lunchSide = s;
-                else if(counter == 2)
-                    dinerChoice = s;
-                else
-                    dinerSide = s;
-                ++counter;
-            }
-            System.out.println(nonMenufood.toString());
-
+        int counter = 0;
+        for(String s : menuFood)
+        {
+            if(counter == 0)
+                lunchMenu = s;
+            else if(counter == 1)
+                lunchVegMenu = s;
+            else if(counter == 2)
+                dinerMenu = s;
+            else
+                dinerVegMenu = s;
+            ++counter;
         }
+        counter = 0;
+        for(String s: nonMenufood)
+        {
+            if(counter == 0)
+                lunchChoice = s;
+            else if(counter == 1)
+                lunchSide = s;
+            else if(counter == 2)
+                dinerChoice = s;
+            else
+                dinerSide = s;
+            ++counter;
+        }
+
+    }
+
+    public static String StreamToString(InputStream in) throws IOException {
+        if(in == null) {
+            return "";
+        }
+        Writer writer = new StringWriter();
+        char[] buffer = new char[1024];
+        try {
+            Reader reader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
+            int n;
+            while ((n = reader.read(buffer)) != -1) {
+                writer.write(buffer, 0, n);
+            }
+        } finally {
+        }
+        return writer.toString();
+    }
 
     private static String wordFormater(String s)
     {

@@ -18,7 +18,6 @@ public class Connection extends Activity {
             Elements content = null;
             try {
                 Document savska = Jsoup.connect("http://www.sczg.unizg.hr/prehrana/restorani/savska/").get();
-                System.out.println(savska);
                 content = savska.select("div[class=newsItem subpage]");
             } catch (IOException e) {
                 e.printStackTrace();
