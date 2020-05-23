@@ -2,16 +2,76 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_first_fragment"
-            android:icon="@drawable/icon_"
-            android:title="First" />
+            android:id="@+id/savska"
+            android:icon="@drawable/canteen_icon"
+            android:title="SC SAVSKA" />+
         <item
-            android:id="@+id/nav_second_fragment"
-            android:icon="@drawable/icon_"
-            android:title="Second" />
+            android:id="@+id/fer"
+            android:icon="@drawable/canteen_icon"
+            android:title="CASSANDRA - FER" />+
         <item
-            android:id="@+id/nav_third_fragment"
-            android:icon="@drawable/icon_"
-            android:title="Third" />
+            android:id="@+id/arh"
+            android:icon="@drawable/canteen_icon"
+            android:title="ODEON - ARH" />+
+<!--        <item-->
+<!--            android:id="@+id/pmf"-->
+<!--            android:icon="@drawable/canteen_icon"-->
+<!--            android:title="VEGMAG - PMF" />-->
+<!--        <item-->
+<!--            android:id="@+id/pbf"-->
+<!--            android:icon="@drawable/canteen_icon"-->
+<!--            android:title="SUPERFAX - PBF" />-->
+        <item
+            android:id="@+id/sava"
+            android:icon="@drawable/canteen_icon"
+            android:title="SD STJEPAN RADIĆ" />+
+        <item
+            android:id="@+id/cvjetno"
+            android:icon="@drawable/canteen_icon"
+            android:title="SD CVJETNO NASELJE" />+
+        <item
+            android:id="@+id/fsb"
+            android:icon="@drawable/canteen_icon"
+            android:title="FSB" />+
+        <item
+            android:id="@+id/lascina"
+            android:icon="@drawable/canteen_icon"
+            android:title="SD LAŠĆINA" />+
+        <item
+            android:id="@+id/medicina"
+            android:icon="@drawable/canteen_icon"
+            android:title="MEDICINA" />+
+        <item
+            android:id="@+id/filozofski"
+            android:icon="@drawable/canteen_icon"
+            android:title="FILOZOFSKI" />+
+        <item
+            android:id="@+id/nsk"
+            android:icon="@drawable/canteen_icon"
+            android:title="NSK" />
+        <item
+            android:id="@+id/tvz"
+            android:icon="@drawable/canteen_icon"
+            android:title="TVZ" />
+        <item
+            android:id="@+id/alu"
+            android:icon="@drawable/canteen_icon"
+            android:title="ALU" />+
+        <item
+            android:id="@+id/sumarstvo"
+            android:icon="@drawable/canteen_icon"
+            android:title="ŠUMARSTVO" />+
+        <item
+            android:id="@+id/veterina"
+            android:icon="@drawable/canteen_icon"
+            android:title="VETERINA" />+
+        <item
+            android:id="@+id/ekonomija"
+            android:icon="@drawable/canteen_icon"
+            android:title="EKONOMIJA" />+
+        <item
+            android:id="@+id/borongaj"
+            android:icon="@drawable/canteen_icon"
+            android:title="ZUK BORONGAJ" />+
     </group>
 </menu>

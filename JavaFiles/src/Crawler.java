@@ -3,7 +3,11 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.LinkedList;
 import java.util.TreeMap;
 
@@ -16,26 +20,39 @@ public class Crawler {
 
         //To Do: napraviti metodu za connect
         Document savska = Jsoup.connect("http://www.sczg.unizg.hr/prehrana/restorani/savska/").get();
-        Elements content = savska.select("div[class=newsItem subpage]");
+        File myObj = new File("savska_sc_jsoup.html");
+        myObj.createNewFile();
+
+        for(Element e : savska.getAllElements())
+        {
+            try {
+                Files.write(Paths.get(myObj.getPath()), e.toString().getBytes(), StandardOpenOption.APPEND);
+            }catch (IOException ex) {
+                //exception handling left as an exercise for the reader
+            }
+        }
 
 
-        //first column -- canteen name -- Savska restoran
-        String canteenSC = content.select("p[style]").first().text();
-
-
-        //first column Canteen work info
-        Element mainContent1 = content.get(0);
-        //second column Canteen food menu
-        Elements mainContent2 = returnContent(content.get(1), "p");
-        //date of the menu, and the canteen
-        String date = wordFormater(mainContent2.select("p").get(1).text());
-        //line of canteen in SC
-        String line = wordFormater(mainContent2.select("p").get(3).text());
-        //non menu food
-        LinkedList<String> nonMenufood = nonMenuFood(mainContent2, "p");
-        //menus for lunch, diner
-        LinkedList<String> menuFood = menuFood(mainContent2, "p");
-        System.out.println(line);
+//        Elements content = savska.select("div[class=newsItem subpage]");
+//
+//
+//        //first column -- canteen name -- Savska restoran
+//        String canteenSC = content.select("p[style]").first().text();
+//
+//
+//        //first column Canteen work info
+//        Element mainContent1 = content.get(0);
+//        //second column Canteen food menu
+//        Elements mainContent2 = returnContent(content.get(1), "p");
+//        //date of the menu, and the canteen
+//        String date = wordFormater(mainContent2.select("p").get(1).text());
+//        //line of canteen in SC
+//        String line = wordFormater(mainContent2.select("p").get(3).text());
+//        //non menu food
+//        LinkedList<String> nonMenufood = nonMenuFood(mainContent2, "p");
+//        //menus for lunch, diner
+//        LinkedList<String> menuFood = menuFood(mainContent2, "p");
+//        System.out.println(line);
     }
 
     private static String wordFormater(String s)

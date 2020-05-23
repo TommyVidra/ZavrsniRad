@@ -6,6 +6,9 @@
     android:background="@color/background"
     android:fitsSystemWindows="true"
     android:minHeight="?attr/actionBarSize"
+    android:textAlignment="center"
+    android:fontFamily="@font/robotoslabsemibold"
     app:subtitleTextColor="@color/headerBackground"
     app:theme="@style/ToolbarStyleDark"
+    app:title="MENZA APP"
     app:titleTextColor="@color/headerBackground"></androidx.appcompat.widget.Toolbar>

@@ -4,6 +4,11 @@ public class configs {
 
     public static boolean local;
     public static String path;
+    public static String[] names = {"Sc Savska", "Cassandra - Fer", "Odeon - Arh", "Stjepan Radić - Sava", "Cvjetno Naselje"};
+    public static String dinner = "Ručak - Večera";
+    public static String lunch = "Ručak";
+    public static int imgIds[] = {R.drawable.sc_canteen, R.drawable.fer_canteen, R.drawable.arh_canteen, R.drawable.sava_canteen};
+
     public static String html="[]\n" +
             "<!DOCTYPE HTML>\n" +
             "<html>\n" +

@@ -39,9 +39,10 @@ public class Crawler {
 
 
             //first column Canteen work info
-            Element mainContent1 = content.get(0);
+            //Element mainContent1 = content.get(0);
             //second column Canteen food menu
             Elements mainContent2 = returnContent(content.get(1), "p");
+        System.out.println(content.get(1));
             //date of the menu, and the canteen
             String date = wordFormater(mainContent2.select("p").get(1).text());
             //line of canteen in SC

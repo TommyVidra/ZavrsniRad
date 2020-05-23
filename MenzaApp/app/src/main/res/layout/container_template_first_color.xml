@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/upper_rounded_corners_contetnt"
+        android:editable="false"
+        android:ems="10"
+        android:fontFamily="@font/robotoslablight"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:paddingLeft="8dp"
+        android:textColor="#344d56"
+        android:textSize="24sp" />
+    <!--        android:text="IZBOR JELA"-->
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/lower_rounded_corners_content"
+        android:editable="false"
+        android:ems="10"
+        android:fontFamily="@font/robotoslab"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:paddingLeft="12dp"
+        android:textColor="#344d56" />
+</LinearLayout>

@@ -6,11 +6,24 @@
         <item name="android:windowContentTransitions">true</item>
             <item name="colorPrimary">#673AB7</item>
             <item name="colorPrimaryDark">#512DA8</item>
+        <item name="android:textColor">@color/headerBackground</item>
+        <item name="android:fontFamily">@font/robotoslabsemibold</item>
     </style>
     <style name="ToolbarStyleDark" parent="@style/ThemeOverlay.AppCompat.ActionBar">
         <item name="android:background">@color/background</item>
         <item name="colorControlNormal">@color/headerBackground</item>
         <item name="android:textColorPrimary">@color/headerBackground</item>
+    </style>
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <!-- Gets rid of the search icon -->
+        <item name="searchIcon">@drawable/search_icon</item>
+        <!-- Gets rid of the "underline" in the text -->
+        <item name="queryBackground">@color/background</item>
+        <!-- Gets rid of the search icon when the SearchView is expanded -->
+        <item name="searchHintIcon">@null</item>
+        <item name="android:editTextColor">@color/headerBackground</item>
+        <item name="android:textColorHint">@color/hint</item>
+        <item name="android:fontFamily">@font/robotoslabsemibold</item>
     </style>
 
 </resources>

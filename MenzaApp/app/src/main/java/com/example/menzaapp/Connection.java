@@ -8,7 +8,9 @@ import org.jsoup.select.Elements;
 import android.os.AsyncTask;
 import android.renderscript.Sampler;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Connection extends Activity {
 
@@ -18,6 +20,9 @@ public class Connection extends Activity {
             Elements content = null;
             try {
                 Document savska = Jsoup.connect("http://www.sczg.unizg.hr/prehrana/restorani/savska/").get();
+                System.out.println("TU SMO \n \n \n \n #################" );
+                //Document savska = Jsoup.connect("http://192.168.0.19:8080").get();
+
                 content = savska.select("div[class=newsItem subpage]");
             } catch (IOException e) {
                 e.printStackTrace();

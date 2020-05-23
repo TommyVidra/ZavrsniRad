@@ -9,12 +9,14 @@
     android:backgroundTint="#1f262a">
 
     <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="57dp"
         android:layout_marginBottom="1dp"
         android:background="#1f262a"
         android:backgroundTint="#1f262a"
+        android:queryHint="Unesi ime menze"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -25,121 +27,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="56dp">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView"
-                android:layout_width="match_parent"
-                android:layout_height="176dp"
-                android:layout_marginBottom="8dp"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:onClick="animateIntent"
-                android:transitionName="@string/transition_string"
-                app:cardBackgroundColor="#01c7c7"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="4dp"
-                app:cardUseCompatPadding="true">
+            <include
+                android:id="@+id/sc_savska"
+                layout="@layout/card_template" />
 
+            <include
+                android:id="@+id/fer_cassandra"
+                layout="@layout/card_template" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+            <include
+                android:id="@+id/arh_odeon"
+                layout="@layout/card_template" />
 
-                    <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="match_parent"
-                        android:layout_height="92dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/sc_canteen"
-                        android:topLeftRadius="8dp"
-                        android:topRightRadius="8dp" />
-
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
-                        android:fontFamily="@font/robotoslabsemibold"
-                        android:text="Sc Savska"
-                        android:textAlignment="viewStart"
-                        android:textColor="#344d56"
-                        android:textSize="30sp" />
-
-                    <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="190dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
-                        android:fontFamily="@font/robotoslab"
-                        android:paddingLeft="12dp"
-                        android:text="Ručak - Večera"
-                        android:textColor="#344d56"
-                        android:textSize="14sp" />
-
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView1"
-                android:layout_width="match_parent"
-                android:layout_height="176dp"
-                android:layout_marginBottom="8dp"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:onClick="animateIntentFER"
-                android:transitionName="@string/transition_string"
-                app:cardBackgroundColor="#01c7c7"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="4dp"
-                app:cardUseCompatPadding="true">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">>
-
-                <ImageView
-                    android:id="@+id/imageView1"
-                    android:layout_width="match_parent"
-                    android:layout_height="92dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/fer_canteen"
-                    android:topLeftRadius="8dp"
-                    android:topRightRadius="8dp" />
-
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:fontFamily="@font/robotoslabsemibold"
-                    android:text="Cassandra - FER"
-                    android:textAlignment="viewStart"
-                    android:textColor="#344d56"
-                    android:textSize="30sp" />
-
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="190dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:fontFamily="@font/robotoslab"
-                    android:paddingLeft="12dp"
-                    android:text="Ručak"
-                    android:textColor="#344d56"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
+            <include
+                android:id="@+id/sava"
+                layout="@layout/card_template" />
 
         </LinearLayout>
     </ScrollView>
