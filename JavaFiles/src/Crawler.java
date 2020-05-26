@@ -1,13 +1,7 @@
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.LinkedList;
 import java.util.TreeMap;
 
@@ -18,19 +12,41 @@ public class Crawler {
         //Map containing line work times
         TreeMap<String, String> LineMenu = new TreeMap<>();
 
-        //To Do: napraviti metodu za connect
-        Document savska = Jsoup.connect("http://www.sczg.unizg.hr/prehrana/restorani/savska/").get();
-        File myObj = new File("savska_sc_jsoup.html");
-        myObj.createNewFile();
+        System.out.println(odeonCrawler.getMenus());
 
-        for(Element e : savska.getAllElements())
-        {
-            try {
-                Files.write(Paths.get(myObj.getPath()), e.toString().getBytes(), StandardOpenOption.APPEND);
-            }catch (IOException ex) {
-                //exception handling left as an exercise for the reader
-            }
-        }
+        //To Do: napraviti metodu za connect
+//        Document odeon = Jsoup.connect("http://odeon.hr/dnevni-meni-studentska-menza/").get(); //savksa
+//        Elements menus = odeon.select("div[class=entry-content clearfix]");
+//
+//        Element date = menus.select("h3").first();
+//        Elements food = menus.select("h3");
+//        food.remove(0);
+//
+//        Elements divs = food.select("div");
+//        Elements menu1 = divs.first().select("p");
+//
+//        String menu1Content = "";
+//        for (String s : menu1.text().split("\\s+"))
+//        {
+//            if(Character.isUpperCase(s.charAt(0)) && menu1Content.length() > 2)
+//                menu1Content += "\n" + s;
+//            else if (Character.isUpperCase(s.charAt(0)))
+//                menu1Content += s;
+//            else
+//                menu1Content += " " + s;
+//        }
+
+//        File myObj = new File("savska_sc_jsoup.html");
+//        myObj.createNewFile();
+//
+//        for(Element e : savska.getAllElements())
+//        {
+//            try {
+//                Files.write(Paths.get(myObj.getPath()), e.toString().getBytes(), StandardOpenOption.APPEND);
+//            }catch (IOException ex) {
+//                //exception handling left as an exercise for the reader
+//            }
+//        }
 
 
 //        Elements content = savska.select("div[class=newsItem subpage]");
