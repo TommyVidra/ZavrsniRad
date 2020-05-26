@@ -11,8 +11,9 @@ public class Crawler {
 
         //Map containing line work times
         TreeMap<String, String> LineMenu = new TreeMap<>();
+        System.out.println(cassandraCrawler.getMenus());
 
-        System.out.println(odeonCrawler.getMenus());
+        //System.out.println(odeonCrawler.getMenus());
 
         //To Do: napraviti metodu za connect
 //        Document odeon = Jsoup.connect("http://odeon.hr/dnevni-meni-studentska-menza/").get(); //savksa

@@ -23,12 +23,13 @@ public class odeonCrawler {
         Elements menu1 = divs.first().select("p");
 
         for(Element e : divs.select("p"))
-            menusList.add(getMenu(e));
+            if(e.text().length() > 2)
+                menusList.add(getMenu(e));
 
         return menusList;
     }
 
-    private static String getMenu(Element element)
+    public static String getMenu(Element element)
     {
         String temp = "";
 
@@ -36,8 +37,6 @@ public class odeonCrawler {
         {
             if(s.length() > 1)
             {
-//                if(s.contains("\\("))
-//                    s = s.split("\\(")[0];
                 if(Character.isUpperCase(s.charAt(0)) && temp.length() > 2)
                     temp += "\n" + s;
                 else if (Character.isUpperCase(s.charAt(0)))
@@ -46,7 +45,7 @@ public class odeonCrawler {
                     temp += " " + s;
             }
         }
-        System.out.println(temp);
+        //System.out.println(temp);
         return temp;
     }
 }
