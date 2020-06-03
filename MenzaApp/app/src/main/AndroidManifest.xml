@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".CanteenMainViews" >
+        <activity android:name=".CanteenMainViews_neKoristiSe" >
             <!--Default Intent Filter-->
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
@@ -33,6 +33,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".test" >
+            <!--Default Intent Filter-->
+            <intent-filter>
+                <action android:name="android.intent.action.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".OdeonCanteenView" >
             <!--Default Intent Filter-->
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />

@@ -215,121 +215,130 @@
                     android:textColor="#344d56"
                     android:textSize="36sp" />
 
-                <TextView
-                    android:id="@+id/menu2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/upper_rounded_corners_contetnt"
-                    android:editable="false"
-                    android:ems="10"
-                    android:fontFamily="@font/robotoslablight"
-                    android:gravity="start|top"
-                    android:inputType="textMultiLine"
-                    android:paddingLeft="8dp"
-                    android:text="MENU"
-                    android:textColor="#344d56"
-                    android:textSize="24sp" />
+                <include layout="@layout/container_template_first_color"
+                    android:id="@+id/menu_2"/>
+                <include layout="@layout/contaner_template_second_color"
+                    android:id="@+id/veg_2"/>
+                <include layout="@layout/container_template_first_color"
+                    android:id="@+id/choice_2"/>
+                <include layout="@layout/contaner_template_second_color"
+                    android:id="@+id/side_2"/>
 
-                <TextView
-                    android:id="@+id/menuContent2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/lower_rounded_corners_content"
-                    android:editable="false"
-                    android:ems="10"
-                    android:fontFamily="@font/robotoslab"
-                    android:gravity="start|top"
-                    android:inputType="textMultiLine"
-                    android:paddingLeft="12dp"
-                    android:textColor="#344d56" />
+<!--                <TextView-->
+<!--                    android:id="@+id/menu2"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@drawable/upper_rounded_corners_contetnt"-->
+<!--                    android:editable="false"-->
+<!--                    android:ems="10"-->
+<!--                    android:fontFamily="@font/robotoslablight"-->
+<!--                    android:gravity="start|top"-->
+<!--                    android:inputType="textMultiLine"-->
+<!--                    android:paddingLeft="8dp"-->
+<!--                    android:text="MENU"-->
+<!--                    android:textColor="#344d56"-->
+<!--                    android:textSize="24sp" />-->
 
-                <TextView
-                    android:id="@+id/vegMenu2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/upper_rounded_corners_content_second"
-                    android:editable="false"
-                    android:ems="10"
-                    android:fontFamily="@font/robotoslablight"
-                    android:gravity="start|top"
-                    android:inputType="textMultiLine"
-                    android:paddingLeft="8dp"
-                    android:text="VEGETARIJANSKI MENU"
-                    android:textColor="#344d56"
-                    android:textSize="24sp" />
+<!--                <TextView-->
+<!--                    android:id="@+id/menuContent2"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginBottom="8dp"-->
+<!--                    android:background="@drawable/lower_rounded_corners_content"-->
+<!--                    android:editable="false"-->
+<!--                    android:ems="10"-->
+<!--                    android:fontFamily="@font/robotoslab"-->
+<!--                    android:gravity="start|top"-->
+<!--                    android:inputType="textMultiLine"-->
+<!--                    android:paddingLeft="12dp"-->
+<!--                    android:textColor="#344d56" />-->
 
-                <TextView
-                    android:id="@+id/vegMenuContent2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/lower_rounded_corners_content_second"
-                    android:editable="false"
-                    android:ems="10"
-                    android:fontFamily="@font/robotoslab"
-                    android:gravity="start|top"
-                    android:inputType="textMultiLine"
-                    android:paddingLeft="12dp"
-                    android:textColor="#344d56" />
+<!--                <TextView-->
+<!--                    android:id="@+id/vegMenu2"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@drawable/upper_rounded_corners_content_second"-->
+<!--                    android:editable="false"-->
+<!--                    android:ems="10"-->
+<!--                    android:fontFamily="@font/robotoslablight"-->
+<!--                    android:gravity="start|top"-->
+<!--                    android:inputType="textMultiLine"-->
+<!--                    android:paddingLeft="8dp"-->
+<!--                    android:text="VEGETARIJANSKI MENU"-->
+<!--                    android:textColor="#344d56"-->
+<!--                    android:textSize="24sp" />-->
 
-                <TextView
-                    android:id="@+id/choice2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/upper_rounded_corners_contetnt"
-                    android:editable="false"
-                    android:ems="10"
-                    android:fontFamily="@font/robotoslablight"
-                    android:gravity="start|top"
-                    android:inputType="textMultiLine"
-                    android:paddingLeft="8dp"
-                    android:text="IZBOR JELA"
-                    android:textColor="#344d56"
-                    android:textSize="24sp" />
+<!--                <TextView-->
+<!--                    android:id="@+id/vegMenuContent2"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginBottom="8dp"-->
+<!--                    android:background="@drawable/lower_rounded_corners_content_second"-->
+<!--                    android:editable="false"-->
+<!--                    android:ems="10"-->
+<!--                    android:fontFamily="@font/robotoslab"-->
+<!--                    android:gravity="start|top"-->
+<!--                    android:inputType="textMultiLine"-->
+<!--                    android:paddingLeft="12dp"-->
+<!--                    android:textColor="#344d56" />-->
 
-                <TextView
-                    android:id="@+id/choiceContent2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/lower_rounded_corners_content"
-                    android:editable="false"
-                    android:ems="10"
-                    android:fontFamily="@font/robotoslab"
-                    android:gravity="start|top"
-                    android:inputType="textMultiLine"
-                    android:paddingLeft="12dp"
-                    android:textColor="#344d56" />
+<!--                <TextView-->
+<!--                    android:id="@+id/choice2"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@drawable/upper_rounded_corners_contetnt"-->
+<!--                    android:editable="false"-->
+<!--                    android:ems="10"-->
+<!--                    android:fontFamily="@font/robotoslablight"-->
+<!--                    android:gravity="start|top"-->
+<!--                    android:inputType="textMultiLine"-->
+<!--                    android:paddingLeft="8dp"-->
+<!--                    android:text="IZBOR JELA"-->
+<!--                    android:textColor="#344d56"-->
+<!--                    android:textSize="24sp" />-->
 
-                <TextView
-                    android:id="@+id/side2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/upper_rounded_corners_content_second"
-                    android:editable="false"
-                    android:ems="10"
-                    android:fontFamily="@font/robotoslablight"
-                    android:gravity="start|top"
-                    android:inputType="textMultiLine"
-                    android:paddingLeft="8dp"
-                    android:text="PRILOZI"
-                    android:textColor="#344d56"
-                    android:textSize="24sp" />
+<!--                <TextView-->
+<!--                    android:id="@+id/choiceContent2"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginBottom="8dp"-->
+<!--                    android:background="@drawable/lower_rounded_corners_content"-->
+<!--                    android:editable="false"-->
+<!--                    android:ems="10"-->
+<!--                    android:fontFamily="@font/robotoslab"-->
+<!--                    android:gravity="start|top"-->
+<!--                    android:inputType="textMultiLine"-->
+<!--                    android:paddingLeft="12dp"-->
+<!--                    android:textColor="#344d56" />-->
 
-                <TextView
-                    android:id="@+id/sideContent2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/lower_rounded_corners_content_second"
-                    android:editable="false"
-                    android:ems="10"
-                    android:fontFamily="@font/robotoslab"
-                    android:gravity="start|top"
-                    android:inputType="textMultiLine"
-                    android:paddingLeft="12dp"
-                    android:textColor="#344d56" />
+<!--                <TextView-->
+<!--                    android:id="@+id/side2"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@drawable/upper_rounded_corners_content_second"-->
+<!--                    android:editable="false"-->
+<!--                    android:ems="10"-->
+<!--                    android:fontFamily="@font/robotoslablight"-->
+<!--                    android:gravity="start|top"-->
+<!--                    android:inputType="textMultiLine"-->
+<!--                    android:paddingLeft="8dp"-->
+<!--                    android:text="PRILOZI"-->
+<!--                    android:textColor="#344d56"-->
+<!--                    android:textSize="24sp" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/sideContent2"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginBottom="8dp"-->
+<!--                    android:background="@drawable/lower_rounded_corners_content_second"-->
+<!--                    android:editable="false"-->
+<!--                    android:ems="10"-->
+<!--                    android:fontFamily="@font/robotoslab"-->
+<!--                    android:gravity="start|top"-->
+<!--                    android:inputType="textMultiLine"-->
+<!--                    android:paddingLeft="12dp"-->
+<!--                    android:textColor="#344d56" />-->
             </LinearLayout>
 
 

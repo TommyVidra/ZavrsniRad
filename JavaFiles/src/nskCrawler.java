@@ -1,7 +1,3 @@
-package com.example.menzaapp;
-
-import android.os.AsyncTask;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -9,126 +5,28 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.LinkedList;
-import java.util.TreeMap;
-import java.util.concurrent.ExecutionException;
 
-public class Crawler {
+public class nskCrawler {
 
-    public static String lunchMenu = "";
-    public static String lunchVegMenu = "";
-
-    public static String dinerMenu = "";
-    public static String dinerVegMenu = "";
-
-    public static String lunchSide  = "";
-    public static String lunchChoice = "";
-
-    public static String dinerSide = "";
-    public static String dinerChoice = "";
-
-    public static LinkedList<String> menusL;
-
-    public static void ScLijevo() throws IOException, ExecutionException, InterruptedException {
-
-            //Map containing line work times
-            TreeMap<String, String> LineMenu = new TreeMap<>();
-
-            Connection.myTask task = new Connection.myTask();
-            task.execute("http://www.sczg.unizg.hr/prehrana/restorani/savska/");
-            Document contentD = task.get();
-            Elements content = contentD.select("div[class=newsItem subpage]");
-
-            //String canteenSC = content.select("p[style]").first().text();
+    public static String menuS = "";
+    public static String vegS = "";
+    public static String choiceS = "";
+    public static String sideS = "";
 
 
-            //first column Canteen work info
-            //Element mainContent1 = content.get(0);
-            //second column Canteen food menu
-            Elements mainContent2 = returnContent(content.get(1), "p");
-            //System.out.println(content.get(1));
-            //date of the menu, and the canteen
-            String date = wordFormater(mainContent2.select("p").get(1).text());
-            //line of canteen in SC
-            String line = wordFormater(mainContent2.select("p").get(3).text());
-            //non menu food
-            LinkedList<String> nonMenufood = nonMenuFood(mainContent2, "p");
-            //menus for lunch, diner
-            LinkedList<String> menuFood = menuFood(mainContent2, "p");
-            String meni = "";
-            String nonMeni = "";
+    public static void nsk() throws IOException {
 
-            int counter = 0;
-            for(String s : menuFood)
-            {
-                if(counter == 0)
-                    lunchMenu = s;
-                else if(counter == 1)
-                    lunchVegMenu = s;
-                else if(counter == 2)
-                    dinerMenu = s;
-                else
-                    dinerVegMenu = s;
-                ++counter;
-            }
-            counter = 0;
-            for(String s: nonMenufood)
-            {
-                if(counter == 0)
-                    lunchChoice = s;
-                else if(counter == 1)
-                    lunchSide = s;
-                else if(counter == 2)
-                    dinerChoice = s;
-                else
-                    dinerSide = s;
-                ++counter;
-            }
-            System.out.println(nonMenufood.toString());
+        Document savska = Jsoup.connect("http://www.sczg.unizg.hr/prehrana/restorani/nsk/").get(); //savksa
 
-        }
+        Elements content = savska.select("div[class=newsItem subpage]");
 
-    public static void odeon() throws ExecutionException, InterruptedException {
+        Elements mainContent2 = returnContent(content.get(1), "p");
 
-        LinkedList<String> menusList = new LinkedList<>();
+        LinkedList<String> menus = menuFood(mainContent2, "p");
+        LinkedList<String> nonMenus = nonMenuFood(mainContent2, "p");
+        menuS = menus.get(0); vegS = menus.get(1); choiceS = nonMenus.get(0); sideS = nonMenus.get(1);
+        System.out.println(menuS + "\n" + vegS + "\n" + choiceS + "\n" + sideS);
 
-        Connection.myTask task = new Connection.myTask();
-        task.execute("http://odeon.hr/dnevni-meni-studentska-menza/");
-        Document odeon = task.get();
-//        Document odeon = Jsoup.connect("http://odeon.hr/dnevni-meni-studentska-menza/").get(); //savksa
-        Elements menus = odeon.select("div[class=entry-content clearfix]");
-
-        Element date = menus.select("h3").first();
-        Elements food = menus.select("h3");
-        food.remove(0);
-
-        Elements divs = food.select("div");
-        Elements menu1 = divs.first().select("p");
-
-        for(Element e : divs.select("p"))
-            if(e.text().length() > 2)
-                menusList.add(getMenu(e));
-
-        menusL = menusList;
-    }
-
-    private static String getMenu(Element element)
-    {
-        String temp = "";
-
-        for (String s : element.text().split("\\s+"))
-        {
-            if(s.length() > 1)
-            {
-                if(Character.isUpperCase(s.charAt(0)) && temp.length() > 2)
-                    temp += "\n" + s;
-                else if (Character.isUpperCase(s.charAt(0)))
-                    temp += s;
-                else
-                    temp += " " + s;
-            }
-        }
-        //System.out.println(temp);
-        return temp;
     }
 
     private static String wordFormater(String s)
@@ -151,7 +49,7 @@ public class Crawler {
                     temp += tempArr[i].substring(0, 1).toUpperCase() + tempArr[i].toLowerCase().substring(1);
 
                 else if(tempArr[i].matches("\\d+.") || tempArr[i].matches("[a-z]."))
-                    temp += " " + tempArr[i];
+                    temp += tempArr[i];
 
                 else
                     temp +=" " + tempArr[i].toLowerCase();

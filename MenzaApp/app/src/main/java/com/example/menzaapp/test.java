@@ -69,6 +69,13 @@ public class test extends AppCompatActivity {
                 return false;
             }
         });
+        final CardView arh = findViewById(R.id.arh_odeon);
+        arh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                animateIntent(arh);
+            }
+        });
     }
 
     private void initCards()
@@ -113,19 +120,39 @@ public class test extends AppCompatActivity {
 //    }
 
     public void animateIntent(CardView view) {
-        // Ordinary Intent for launching a new activity
-        Intent intent = new Intent(this, CanteenView_SC.class);
-        // Get the transition name from the string
-        String transitionName = getString(R.string.transition_string);
-        // Define the view that the animation will start from
-        View viewStart = view;
-        ActivityOptionsCompat options =
-                ActivityOptionsCompat.makeSceneTransitionAnimation(this,
-                        viewStart,   // Starting view
-                        transitionName    // The String
-                );
-        //Start the Intent
-        ActivityCompat.startActivity(this, intent, options.toBundle());
+
+        if(view.getId() == R.id.arh_odeon)
+        {
+            Intent intent = new Intent(this, OdeonCanteenView.class);
+
+            String transitionName = getString(R.string.transition_string);
+
+            View viewStart = view;
+            ActivityOptionsCompat options =
+                    ActivityOptionsCompat.makeSceneTransitionAnimation(this,
+                            viewStart,   // Starting view
+                            transitionName    // The String
+                    );
+            //Start the Intent
+            ActivityCompat.startActivity(this, intent, options.toBundle());
+        }
+        else
+        {
+            // Ordinary Intent for launching a new activity
+            Intent intent = new Intent(this, CanteenView_SC.class);
+            // Get the transition name from the string
+            String transitionName = getString(R.string.transition_string);
+            // Define the view that the animation will start from
+            View viewStart = view;
+            ActivityOptionsCompat options =
+                    ActivityOptionsCompat.makeSceneTransitionAnimation(this,
+                            viewStart,   // Starting view
+                            transitionName    // The String
+                    );
+            //Start the Intent
+            ActivityCompat.startActivity(this, intent, options.toBundle());
+        }
+
     }
 
     public void itemClick()

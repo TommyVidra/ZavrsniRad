@@ -14,25 +14,27 @@ import java.util.Scanner;
 
 public class Connection extends Activity {
 
-    public static class myTask extends AsyncTask<Void, Void, Elements> {
+    public static class myTask extends AsyncTask<String, Void, Document> {
 
-        protected Elements doInBackground(Void... params) {
-            Elements content = null;
+        protected Document doInBackground(String... params) {
+            String url = params[0];
+            //Elements content = null;
+            Document temp = null;
             try {
-                Document savska = Jsoup.connect("http://www.sczg.unizg.hr/prehrana/restorani/savska/").get();
+                temp = Jsoup.connect(url).get();
                 System.out.println("TU SMO \n \n \n \n #################" );
                 //Document savska = Jsoup.connect("http://192.168.0.19:8080").get();
 
-                content = savska.select("div[class=newsItem subpage]");
+                //content = savska.select("div[class=newsItem subpage]");
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-            return content;
+            return temp;
         }
 
         @Override
-        protected void onPostExecute(Elements result) {
+        protected void onPostExecute(Document result) {
 
         }
     }

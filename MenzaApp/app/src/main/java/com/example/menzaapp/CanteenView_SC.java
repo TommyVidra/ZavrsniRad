@@ -1,4 +1,5 @@
 package com.example.menzaapp;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Layout;
@@ -93,8 +94,16 @@ public class CanteenView_SC extends AppCompatActivity{
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
-                if(id == R.id.savska){
-                    mDrawer.closeDrawers();
+                switch(id)
+                {
+                    case(R.id.savska):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case (R.id.arh):
+                        startActivity(new Intent(CanteenView_SC.this, OdeonCanteenView.class), ActivityOptions.makeSceneTransitionAnimation(CanteenView_SC.this).toBundle());
+                        finish();
+                        return false;
                 }
                 return false;
             }
@@ -265,20 +274,27 @@ public class CanteenView_SC extends AppCompatActivity{
         side = sideLayout.findViewById(R.id.heading);
         menu.setText("MENU"); veg.setText("VEGETARIJANSKI MENU"); choice.setText("IZBOR JELA"); side.setText("PRILOZI");
 
-        menuContentDinner = this.findViewById(R.id.menuContent2);
-        vegContentDinner = this.findViewById(R.id.vegMenuContent2);
-        choiceContentDinner = this.findViewById(R.id.choiceContent2);
-        sideContentDinner = this.findViewById(R.id.sideContent2);
-        menuDinner = this.findViewById(R.id.menu2);
-        vegDinner = this.findViewById(R.id.vegMenu2);
-        choiceDinner = this.findViewById(R.id.choice2);
-        sideDinner = this.findViewById(R.id.side2);
+        LinearLayout menu1Layout = findViewById(R.id.menu_2);
+        LinearLayout veg1Layout = findViewById(R.id.veg_2);
+        LinearLayout side1Layout = findViewById(R.id.side_2);
+        LinearLayout choice1Layout = findViewById(R.id.choice_2);
+
+        menuContentDinner = menu1Layout.findViewById(R.id.content);
+        vegContentDinner = veg1Layout.findViewById(R.id.content);
+        choiceContentDinner = choice1Layout.findViewById(R.id.content);
+        sideContentDinner = side1Layout.findViewById(R.id.content);
+
+        menuDinner = menu1Layout.findViewById(R.id.heading);
+        vegDinner = veg1Layout.findViewById(R.id.heading);
+        choiceDinner = choice1Layout.findViewById(R.id.heading);
+        sideDinner = side1Layout.findViewById(R.id.heading);
+        menuDinner.setText("MENU"); vegDinner.setText("VEGETARIJANSKI MENU"); choiceDinner.setText("IZBOR JELA"); sideDinner.setText("PRILOZI");
 
         initVisabilityGone(menu, choice, side, veg, menuContent, vegContent, choiceContent, sideContent);
         initVisabilityGone(menuDinner, choiceDinner, sideDinner, vegDinner, menuContentDinner, vegContentDinner, choiceContentDinner, sideContentDinner);
     }
 
-    public static void setMargins (View v, int l, int t, int r, int b) {
+    private void setMargins (View v, int l, int t, int r, int b) {
         if (v.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
             p.setMargins(l, t, r, b);
