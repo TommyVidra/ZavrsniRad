@@ -2,76 +2,84 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/savska"
-            android:icon="@drawable/canteen_icon"
-            android:title="SC SAVSKA" />+
-        <item
-            android:id="@+id/fer"
-            android:icon="@drawable/canteen_icon"
-            android:title="CASSANDRA - FER" />+
-        <item
             android:id="@+id/arh"
             android:icon="@drawable/canteen_icon"
-            android:title="ODEON - ARH" />+
-<!--        <item-->
-<!--            android:id="@+id/pmf"-->
-<!--            android:icon="@drawable/canteen_icon"-->
-<!--            android:title="VEGMAG - PMF" />-->
-<!--        <item-->
-<!--            android:id="@+id/pbf"-->
-<!--            android:icon="@drawable/canteen_icon"-->
-<!--            android:title="SUPERFAX - PBF" />-->
+            android:title="ARH - ODEON" />
+
         <item
-            android:id="@+id/sava"
+            android:id="@+id/alu"
             android:icon="@drawable/canteen_icon"
-            android:title="SD STJEPAN RADIĆ" />+
+            android:title="ALU" />
+
+        <item
+            android:id="@+id/borongaj"
+            android:icon="@drawable/canteen_icon"
+            android:title="BORONGAJ" />
+
         <item
             android:id="@+id/cvjetno"
             android:icon="@drawable/canteen_icon"
-            android:title="SD CVJETNO NASELJE" />+
+            android:title="CVJETNO NASELJE SD" />
+
         <item
-            android:id="@+id/fsb"
+            android:id="@+id/ekonomija"
             android:icon="@drawable/canteen_icon"
-            android:title="FSB" />+
+            android:title="EKONOMIJA" />
+
         <item
-            android:id="@+id/lascina"
+            android:id="@+id/fer"
             android:icon="@drawable/canteen_icon"
-            android:title="SD LAŠĆINA" />+
-        <item
-            android:id="@+id/medicina"
-            android:icon="@drawable/canteen_icon"
-            android:title="MEDICINA" />+
+            android:title="FER - CASSANDRA" />
+
         <item
             android:id="@+id/filozofski"
             android:icon="@drawable/canteen_icon"
-            android:title="FILOZOFSKI" />+
+            android:title="FFZG" />
+
+        <item
+            android:id="@+id/fsb"
+            android:icon="@drawable/canteen_icon"
+            android:title="FSB" />
+
+        <item
+            android:id="@+id/lascina"
+            android:icon="@drawable/canteen_icon"
+            android:title="LAŠĆINA SD" />
+
+        <item
+            android:id="@+id/medicina"
+            android:icon="@drawable/canteen_icon"
+            android:title="MEDICINA" />
+
         <item
             android:id="@+id/nsk"
             android:icon="@drawable/canteen_icon"
             android:title="NSK" />
+
+        <item
+            android:id="@+id/sava"
+            android:icon="@drawable/canteen_icon"
+            android:title="SAVA STJEPAN RADIĆ SD" />
+
+        <item
+            android:id="@+id/savska"
+            android:icon="@drawable/canteen_icon"
+            android:title="SC SAVSKA" />
+
+        <item
+            android:id="@+id/sumarstvo"
+            android:icon="@drawable/canteen_icon"
+            android:title="ŠUMARSTVO" />
+
         <item
             android:id="@+id/tvz"
             android:icon="@drawable/canteen_icon"
             android:title="TVZ" />
-        <item
-            android:id="@+id/alu"
-            android:icon="@drawable/canteen_icon"
-            android:title="ALU" />+
-        <item
-            android:id="@+id/sumarstvo"
-            android:icon="@drawable/canteen_icon"
-            android:title="ŠUMARSTVO" />+
+
         <item
             android:id="@+id/veterina"
             android:icon="@drawable/canteen_icon"
-            android:title="VETERINA" />+
-        <item
-            android:id="@+id/ekonomija"
-            android:icon="@drawable/canteen_icon"
-            android:title="EKONOMIJA" />+
-        <item
-            android:id="@+id/borongaj"
-            android:icon="@drawable/canteen_icon"
-            android:title="ZUK BORONGAJ" />+
+            android:title="VETERINA" />
+
     </group>
 </menu>

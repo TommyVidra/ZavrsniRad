@@ -1,52 +1,128 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1f262a"
-    android:backgroundTint="#1f262a">
+    android:background="@color/background">
 
-    <ScrollView
-        android:id="@+id/scrollView3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="57dp"
-        android:layout_marginBottom="1dp"
-        android:background="#1f262a"
-        android:backgroundTint="#1f262a"
-        android:queryHint="Unesi ime menze"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+    <!-- This LinearLayout represents the contents of the screen  -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <!-- The ActionBar displayed at the top -->
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="56dp">
+            android:layout_height="wrap_content" />
 
-            <include
-                android:id="@+id/sc_savska"
-                layout="@layout/card_template" />
+        <!-- The main content view where fragments are loaded -->
+        <ScrollView
+            android:id="@+id/scrollView3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="1dp"
+            android:background="#1f262a"
+            android:backgroundTint="#1f262a"
+            android:queryHint="Unesi ime menze"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
 
-            <include
-                android:id="@+id/fer_cassandra"
-                layout="@layout/card_template" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="120dp">
 
-            <include
-                android:id="@+id/arh_odeon"
-                layout="@layout/card_template" />
+                <include
+                    android:id="@+id/arh_card"
+                    layout="@layout/card_template" />
 
-            <include
-                android:id="@+id/sava"
-                layout="@layout/card_template" />
+                <include
+                    android:id="@+id/alu_card"
+                    layout="@layout/card_template" />
 
-        </LinearLayout>
-    </ScrollView>
+                <include
+                    android:id="@+id/borongaj_card"
+                    layout="@layout/card_template" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <include
+                    android:id="@+id/cvjetno_card"
+                    layout="@layout/card_template" />
+
+                <include
+                    android:id="@+id/ekonomija_card"
+                    layout="@layout/card_template" />
+
+                <include
+                    android:id="@+id/fer_card"
+                    layout="@layout/card_template" />
+
+                <include
+                    android:id="@+id/ffzg_card"
+                    layout="@layout/card_template" />
+
+                <include
+                    android:id="@+id/fsb_card"
+                    layout="@layout/card_template" />
+
+                <include
+                    android:id="@+id/lascina_card"
+                    layout="@layout/card_template" />
+
+                <include
+                    android:id="@+id/medicina_card"
+                    layout="@layout/card_template" />
+
+                <include
+                    android:id="@+id/nsk_card"
+                    layout="@layout/card_template" />
+
+                <include
+                    android:id="@+id/sava_card"
+                    layout="@layout/card_template" />
+
+                <include
+                    android:id="@+id/savska_card"
+                    layout="@layout/card_template" />
+
+                <include
+                    android:id="@+id/sumarstvo_card"
+                    layout="@layout/card_template" />
+
+                <include
+                    android:id="@+id/ttf_card"
+                    layout="@layout/card_template" />
+
+                <include
+                    android:id="@+id/tvz_card"
+                    layout="@layout/card_template" />
+
+                <include
+                    android:id="@+id/veterina_card"
+                    layout="@layout/card_template" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <!-- The navigation drawer that comes from the left -->
+    <!-- Note that `android:layout_gravity` needs to be set to 'start' -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nvView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/drawer"
+        app:itemTextColor="@color/headerBackground"
+        app:itemIconTint="@color/headerBackground"
+        app:menu="@menu/drawer_view" />
+</androidx.drawerlayout.widget.DrawerLayout>

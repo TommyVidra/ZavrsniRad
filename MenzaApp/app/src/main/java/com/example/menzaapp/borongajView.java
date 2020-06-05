@@ -3,29 +3,26 @@ package com.example.menzaapp;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.navigation.Navigation;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.navigation.NavigationView;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
-public class OdeonCanteenView extends AppCompatActivity {
+public class borongajView extends AppCompatActivity {
 
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
@@ -36,8 +33,12 @@ public class OdeonCanteenView extends AppCompatActivity {
     TextView menu1Content;
     TextView menu2;
     TextView menu2Content;
-    TextView menu3;
-    TextView menu3Content;
+    TextView side;
+    TextView sideContent;
+    TextView choice;
+    TextView choiceContent;
+
+    //ovdje su ovi parametri kako bi ih mogli staviti nevidljivima
     TextView menu4;
     TextView menu4Content;
     TextView menu5;
@@ -48,8 +49,7 @@ public class OdeonCanteenView extends AppCompatActivity {
     TextView menu7Content;
     TextView menu8;
     TextView menu8Content;
-    TextView choice;
-    TextView choiceContent;
+
     // Make sure to be using androidx.appcompat.app.ActionBarDrawerToggle version.
     private ActionBarDrawerToggle drawerToggle;
 
@@ -71,24 +71,19 @@ public class OdeonCanteenView extends AppCompatActivity {
         initCards();
         listeners();
 
-        Crawler c = new Crawler();
+        borongajCrawler c = new borongajCrawler();
         try {
-            c.odeon();
+            c.borongaj();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        menu1Content.setText(c.menusL.get(0));
-        menu2Content.setText(c.menusL.get(1));
-        menu3Content.setText(c.menusL.get(2));
-        menu4Content.setText(c.menusL.get(3));
-        menu5Content.setText(c.menusL.get(4));
-        menu6Content.setText(c.menusL.get(5));
-        menu7Content.setText(c.menusL.get(6));
-        menu8Content.setText(c.menusL.get(7));
-        choiceContent.setText(c.menusL.get(8));
+        menu1Content.setText(c.lunch);
+        menu2Content.setText(c.veg);
+        sideContent.setText(c.lunchSideL);
+        choiceContent.setText(c.lunchChoiceL);
 
 
         nvDrawer.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -97,18 +92,22 @@ public class OdeonCanteenView extends AppCompatActivity {
                 int id = item.getItemId();
                 switch(id)
                 {
-                    case(R.id.arh):
+                    case(R.id.fer):
                         mDrawer.closeDrawers();
                         return false;
 
                     case (R.id.savska):
-                        startActivity(new Intent(OdeonCanteenView.this, CanteenView_SC.class), ActivityOptions.makeSceneTransitionAnimation(OdeonCanteenView.this).toBundle());
+                        startActivity(new Intent(borongajView.this, CanteenView_SC.class), ActivityOptions.makeSceneTransitionAnimation(borongajView.this).toBundle());
                         finish();
                         return false;
 
-                    case (R.id.fer):
-                        startActivity(new Intent(OdeonCanteenView.this, CassandraCanteenView.class), ActivityOptions.makeSceneTransitionAnimation(OdeonCanteenView.this).toBundle());
+                    case (R.id.arh):
+                        startActivity(new Intent(borongajView.this, OdeonCanteenView.class), ActivityOptions.makeSceneTransitionAnimation(borongajView.this).toBundle());
                         finish();
+                        return false;
+
+                    case (R.id.borongaj):
+                        mDrawer.closeDrawers();
                         return false;
                 }
                 return false;
@@ -120,18 +119,18 @@ public class OdeonCanteenView extends AppCompatActivity {
         lunch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(menu1Content.getVisibility() == View.VISIBLE || menu2Content.getVisibility() == View.VISIBLE || menu3Content.getVisibility() == View.VISIBLE || choiceContent.getVisibility() == View.VISIBLE || menu4Content.getVisibility() == View.VISIBLE || menu5Content.getVisibility() == View.VISIBLE || menu6Content.getVisibility() == View.VISIBLE || menu7Content.getVisibility() == View.VISIBLE || menu8Content.getVisibility() == View.VISIBLE)
-                {   initVisabilityGone(menu1Content, menu2Content, menu3Content, menu4Content, menu5Content, menu6Content, choiceContent, menu7Content, menu8Content);
-                    marginsMenus(menu1, menu2, menu3, menu4, menu5, menu6, menu7, menu8, choice);
+                if(menu1Content.getVisibility() == View.VISIBLE || menu2Content.getVisibility() == View.VISIBLE || choiceContent.getVisibility() == View.VISIBLE || sideContent.getVisibility() == View.VISIBLE)
+                {   initVisabilityGone(menu1Content, menu2Content, choiceContent, sideContent);
+                    marginsMenus(menu1, menu2, choice, side);
                 }
 
-                else if(menu1.getVisibility() == View.VISIBLE || menu2.getVisibility() == View.VISIBLE || menu3.getVisibility() == View.VISIBLE || choice.getVisibility() == View.VISIBLE || menu4.getVisibility() == View.VISIBLE || menu5.getVisibility() == View.VISIBLE || menu6.getVisibility() == View.VISIBLE || menu7.getVisibility() == View.VISIBLE || menu8.getVisibility() == View.VISIBLE)
-                    initVisabilityGone(menu1, menu2, menu3, menu4, menu5, menu6, menu7, menu8, choice);
+                else if(menu1.getVisibility() == View.VISIBLE || menu2.getVisibility() == View.VISIBLE || side.getVisibility() == View.VISIBLE || choice.getVisibility() == View.VISIBLE)
+                    initVisabilityGone(menu1, menu2, side, choice);
 
                 else
                 {
-                    marginsMenus(menu1, menu2, menu3, menu4, menu5, menu6, menu7, menu8, choice);
-                    initMarginsMenu(menu1, menu2, menu3, menu4, menu5, menu6, menu7, menu8, choice);
+                    marginsMenus(menu1, menu2, side, choice);
+                    initMarginsMenu(menu1, menu2, side, choice);
                 }
             }
         });
@@ -165,64 +164,14 @@ public class OdeonCanteenView extends AppCompatActivity {
                 choiceContent.setVisibility(View.VISIBLE);
             }
         });
-        menu3.setOnClickListener(new View.OnClickListener() {
+        side.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setMargins(menu3, 0, 0, 0, 0);
-                ViewGroup.LayoutParams params = menu3.getLayoutParams();
+                setMargins(side, 0, 0, 0, 0);
+                ViewGroup.LayoutParams params = side.getLayoutParams();
                 params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-                menu3.setLayoutParams(params);
-                menu3Content.setVisibility(View.VISIBLE);
-            }
-        });
-        menu4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setMargins(menu4, 0, 0, 0, 0);
-                ViewGroup.LayoutParams params = menu4.getLayoutParams();
-                params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-                menu4.setLayoutParams(params);
-                menu4Content.setVisibility(View.VISIBLE);
-            }
-        });
-        menu5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setMargins(menu5, 0, 0, 0, 0);
-                ViewGroup.LayoutParams params = menu5.getLayoutParams();
-                params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-                menu5.setLayoutParams(params);
-                menu5Content.setVisibility(View.VISIBLE);
-            }
-        });
-        menu6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setMargins(menu6, 0, 0, 0, 0);
-                ViewGroup.LayoutParams params = menu6.getLayoutParams();
-                params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-                menu6.setLayoutParams(params);
-                menu6Content.setVisibility(View.VISIBLE);
-            }
-        });
-        menu7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setMargins(menu7, 0, 0, 0, 0);
-                ViewGroup.LayoutParams params = menu7.getLayoutParams();
-                params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-                menu7.setLayoutParams(params);
-                menu7Content.setVisibility(View.VISIBLE);
-            }
-        });
-        menu8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setMargins(menu8, 0, 0, 0, 0);
-                ViewGroup.LayoutParams params = menu8.getLayoutParams();
-                params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-                menu8.setLayoutParams(params);
-                menu8Content.setVisibility(View.VISIBLE);
+                side.setLayoutParams(params);
+                sideContent.setVisibility(View.VISIBLE);
             }
         });
     }
@@ -232,38 +181,43 @@ public class OdeonCanteenView extends AppCompatActivity {
 
         LinearLayout menu1Layout = findViewById(R.id.menu1);
         LinearLayout menu2Layout = findViewById(R.id.menu2);
-        LinearLayout menu3Layout = findViewById(R.id.menu3);
+        LinearLayout choiceLayout = findViewById(R.id.menu3);
+        LinearLayout sideLayout = findViewById(R.id.choice); //ovdje je side jer je zadnji choice a side su prilozi
+
         LinearLayout menu4Layout = findViewById(R.id.menu4);
         LinearLayout menu5Layout = findViewById(R.id.menu5);
         LinearLayout menu6Layout = findViewById(R.id.menu6);
         LinearLayout menu7Layout = findViewById(R.id.menu7);
         LinearLayout menu8Layout = findViewById(R.id.menu8);
-        LinearLayout choiceLayout = findViewById(R.id.choice);
+
 
         menu1Content = menu1Layout.findViewById(R.id.content);
         menu2Content = menu2Layout.findViewById(R.id.content);
-        menu3Content = menu3Layout.findViewById(R.id.content);
+        sideContent = sideLayout.findViewById(R.id.content);
+        choiceContent = choiceLayout.findViewById(R.id.content);
+
         menu4Content = menu4Layout.findViewById(R.id.content);
         menu5Content = menu5Layout.findViewById(R.id.content);
         menu6Content = menu6Layout.findViewById(R.id.content);
         menu7Content = menu7Layout.findViewById(R.id.content);
         menu8Content = menu8Layout.findViewById(R.id.content);
-        choiceContent = choiceLayout.findViewById(R.id.content);
+
 
         menu1 = menu1Layout.findViewById(R.id.heading);
         menu2 = menu2Layout.findViewById(R.id.heading);
-        menu3 = menu3Layout.findViewById(R.id.heading);
+        side = sideLayout.findViewById(R.id.heading);
+        choice = choiceLayout.findViewById(R.id.heading);
+
         menu4 = menu4Layout.findViewById(R.id.heading);
         menu5 = menu5Layout.findViewById(R.id.heading);
         menu6 = menu6Layout.findViewById(R.id.heading);
         menu7 = menu7Layout.findViewById(R.id.heading);
         menu8 = menu8Layout.findViewById(R.id.heading);
-        choice = choiceLayout.findViewById(R.id.heading);
 
-        menu1.setText("MENU 1"); menu2.setText("MENU 2"); choice.setText("JELA PO NARUDŽBI"); menu3.setText("MENU 3");
-        menu4.setText("MENU 4"); menu5.setText("MENU 5"); menu6.setText("MENU 6"); menu7.setText("MENU 7"); menu8.setText("MENU 8");
 
-        initVisabilityGone(menu1, choice, menu2, menu3, menu4, menu5, menu6, menu7, menu8, choiceContent, menu1Content, menu2Content, menu3Content, menu4Content, menu5Content, menu6Content, menu7Content, menu8Content);
+        menu1.setText("MENU"); menu2.setText("VEGETARIJANSKI MENU"); choice.setText("IZBOR"); side.setText("PRILOZI");
+
+        initVisabilityGone(menu1, choice, menu2, side, menu4, menu5, menu6, menu7, menu8, choiceContent, menu1Content, menu2Content, sideContent, menu4Content, menu5Content, menu6Content, menu7Content, menu8Content);
     }
 
     private void setMargins (View v, int l, int t, int r, int b) {

@@ -3,29 +3,25 @@ package com.example.menzaapp;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.navigation.Navigation;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.navigation.NavigationView;
 
-import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
-public class OdeonCanteenView extends AppCompatActivity {
+public class CassandraCanteenView extends AppCompatActivity {
 
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
@@ -73,7 +69,7 @@ public class OdeonCanteenView extends AppCompatActivity {
 
         Crawler c = new Crawler();
         try {
-            c.odeon();
+            c.cassandra();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -83,12 +79,6 @@ public class OdeonCanteenView extends AppCompatActivity {
         menu1Content.setText(c.menusL.get(0));
         menu2Content.setText(c.menusL.get(1));
         menu3Content.setText(c.menusL.get(2));
-        menu4Content.setText(c.menusL.get(3));
-        menu5Content.setText(c.menusL.get(4));
-        menu6Content.setText(c.menusL.get(5));
-        menu7Content.setText(c.menusL.get(6));
-        menu8Content.setText(c.menusL.get(7));
-        choiceContent.setText(c.menusL.get(8));
 
 
         nvDrawer.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -97,17 +87,17 @@ public class OdeonCanteenView extends AppCompatActivity {
                 int id = item.getItemId();
                 switch(id)
                 {
-                    case(R.id.arh):
+                    case(R.id.fer):
                         mDrawer.closeDrawers();
                         return false;
 
                     case (R.id.savska):
-                        startActivity(new Intent(OdeonCanteenView.this, CanteenView_SC.class), ActivityOptions.makeSceneTransitionAnimation(OdeonCanteenView.this).toBundle());
+                        startActivity(new Intent(CassandraCanteenView.this, CanteenView_SC.class), ActivityOptions.makeSceneTransitionAnimation(CassandraCanteenView.this).toBundle());
                         finish();
                         return false;
 
-                    case (R.id.fer):
-                        startActivity(new Intent(OdeonCanteenView.this, CassandraCanteenView.class), ActivityOptions.makeSceneTransitionAnimation(OdeonCanteenView.this).toBundle());
+                    case (R.id.arh):
+                        startActivity(new Intent(CassandraCanteenView.this, OdeonCanteenView.class), ActivityOptions.makeSceneTransitionAnimation(CassandraCanteenView.this).toBundle());
                         finish();
                         return false;
                 }
@@ -120,18 +110,18 @@ public class OdeonCanteenView extends AppCompatActivity {
         lunch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(menu1Content.getVisibility() == View.VISIBLE || menu2Content.getVisibility() == View.VISIBLE || menu3Content.getVisibility() == View.VISIBLE || choiceContent.getVisibility() == View.VISIBLE || menu4Content.getVisibility() == View.VISIBLE || menu5Content.getVisibility() == View.VISIBLE || menu6Content.getVisibility() == View.VISIBLE || menu7Content.getVisibility() == View.VISIBLE || menu8Content.getVisibility() == View.VISIBLE)
-                {   initVisabilityGone(menu1Content, menu2Content, menu3Content, menu4Content, menu5Content, menu6Content, choiceContent, menu7Content, menu8Content);
-                    marginsMenus(menu1, menu2, menu3, menu4, menu5, menu6, menu7, menu8, choice);
+                if(menu1Content.getVisibility() == View.VISIBLE || menu2Content.getVisibility() == View.VISIBLE || menu3Content.getVisibility() == View.VISIBLE)
+                {   initVisabilityGone(menu1Content, menu2Content, menu3Content);
+                    marginsMenus(menu1, menu2, menu3);
                 }
 
-                else if(menu1.getVisibility() == View.VISIBLE || menu2.getVisibility() == View.VISIBLE || menu3.getVisibility() == View.VISIBLE || choice.getVisibility() == View.VISIBLE || menu4.getVisibility() == View.VISIBLE || menu5.getVisibility() == View.VISIBLE || menu6.getVisibility() == View.VISIBLE || menu7.getVisibility() == View.VISIBLE || menu8.getVisibility() == View.VISIBLE)
-                    initVisabilityGone(menu1, menu2, menu3, menu4, menu5, menu6, menu7, menu8, choice);
+                else if(menu1.getVisibility() == View.VISIBLE || menu2.getVisibility() == View.VISIBLE || menu3.getVisibility() == View.VISIBLE)
+                    initVisabilityGone(menu1, menu2, menu3);
 
                 else
                 {
-                    marginsMenus(menu1, menu2, menu3, menu4, menu5, menu6, menu7, menu8, choice);
-                    initMarginsMenu(menu1, menu2, menu3, menu4, menu5, menu6, menu7, menu8, choice);
+                    marginsMenus(menu1, menu2, menu3);
+                    initMarginsMenu(menu1, menu2, menu3);
                 }
             }
         });
@@ -155,16 +145,6 @@ public class OdeonCanteenView extends AppCompatActivity {
                 menu2Content.setVisibility(View.VISIBLE);
             }
         });
-        choice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setMargins(choice, 0, 0, 0, 0);
-                ViewGroup.LayoutParams params = choice.getLayoutParams();
-                params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-                choice.setLayoutParams(params);
-                choiceContent.setVisibility(View.VISIBLE);
-            }
-        });
         menu3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -173,56 +153,6 @@ public class OdeonCanteenView extends AppCompatActivity {
                 params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
                 menu3.setLayoutParams(params);
                 menu3Content.setVisibility(View.VISIBLE);
-            }
-        });
-        menu4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setMargins(menu4, 0, 0, 0, 0);
-                ViewGroup.LayoutParams params = menu4.getLayoutParams();
-                params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-                menu4.setLayoutParams(params);
-                menu4Content.setVisibility(View.VISIBLE);
-            }
-        });
-        menu5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setMargins(menu5, 0, 0, 0, 0);
-                ViewGroup.LayoutParams params = menu5.getLayoutParams();
-                params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-                menu5.setLayoutParams(params);
-                menu5Content.setVisibility(View.VISIBLE);
-            }
-        });
-        menu6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setMargins(menu6, 0, 0, 0, 0);
-                ViewGroup.LayoutParams params = menu6.getLayoutParams();
-                params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-                menu6.setLayoutParams(params);
-                menu6Content.setVisibility(View.VISIBLE);
-            }
-        });
-        menu7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setMargins(menu7, 0, 0, 0, 0);
-                ViewGroup.LayoutParams params = menu7.getLayoutParams();
-                params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-                menu7.setLayoutParams(params);
-                menu7Content.setVisibility(View.VISIBLE);
-            }
-        });
-        menu8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setMargins(menu8, 0, 0, 0, 0);
-                ViewGroup.LayoutParams params = menu8.getLayoutParams();
-                params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-                menu8.setLayoutParams(params);
-                menu8Content.setVisibility(View.VISIBLE);
             }
         });
     }
@@ -260,8 +190,7 @@ public class OdeonCanteenView extends AppCompatActivity {
         menu8 = menu8Layout.findViewById(R.id.heading);
         choice = choiceLayout.findViewById(R.id.heading);
 
-        menu1.setText("MENU 1"); menu2.setText("MENU 2"); choice.setText("JELA PO NARUDŽBI"); menu3.setText("MENU 3");
-        menu4.setText("MENU 4"); menu5.setText("MENU 5"); menu6.setText("MENU 6"); menu7.setText("MENU 7"); menu8.setText("MENU 8");
+        menu1.setText("MENU 1"); menu2.setText("MENU 2"); menu3.setText("MENU 3");
 
         initVisabilityGone(menu1, choice, menu2, menu3, menu4, menu5, menu6, menu7, menu8, choiceContent, menu1Content, menu2Content, menu3Content, menu4Content, menu5Content, menu6Content, menu7Content, menu8Content);
     }

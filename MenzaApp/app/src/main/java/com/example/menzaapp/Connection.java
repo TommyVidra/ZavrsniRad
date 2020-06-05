@@ -21,8 +21,9 @@ public class Connection extends Activity {
             //Elements content = null;
             Document temp = null;
             try {
+//                temp = Jsoup.connect(url).get();
+                System.out.println(url);
                 temp = Jsoup.connect(url).get();
-                System.out.println("TU SMO \n \n \n \n #################" );
                 //Document savska = Jsoup.connect("http://192.168.0.19:8080").get();
 
                 //content = savska.select("div[class=newsItem subpage]");
