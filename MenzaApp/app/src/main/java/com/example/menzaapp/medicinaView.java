@@ -94,6 +94,57 @@ public class medicinaView  extends AppCompatActivity {
                         mDrawer.closeDrawers();
                         return false;
 
+                    case(R.id.alu):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.filozofski):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.fsb):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.ttf):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.sava):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.cvjetno):
+                        startActivity(new Intent(medicinaView.this, cvjetnoView.class), ActivityOptions.makeSceneTransitionAnimation(medicinaView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case(R.id.ekonomija):
+                        startActivity(new Intent(medicinaView.this, ekonomijaView.class), ActivityOptions.makeSceneTransitionAnimation(medicinaView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.lascina):
+                        startActivity(new Intent(medicinaView.this, lascinaView.class), ActivityOptions.makeSceneTransitionAnimation(medicinaView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case(R.id.nsk):
+                        startActivity(new Intent(medicinaView.this, nskView.class), ActivityOptions.makeSceneTransitionAnimation(medicinaView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.sumarstvo):
+                        startActivity(new Intent(medicinaView.this, sumarstvoView.class), ActivityOptions.makeSceneTransitionAnimation(medicinaView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.tvz):
+                        startActivity(new Intent(medicinaView.this, tvzView.class), ActivityOptions.makeSceneTransitionAnimation(medicinaView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.veterina):
+                        startActivity(new Intent(medicinaView.this, veterinaView.class), ActivityOptions.makeSceneTransitionAnimation(medicinaView.this).toBundle());
+                        finish();
+                        return false;
+
                     case (R.id.savska):
                         startActivity(new Intent(medicinaView.this, CanteenView_SC.class), ActivityOptions.makeSceneTransitionAnimation(medicinaView.this).toBundle());
                         finish();
@@ -105,7 +156,8 @@ public class medicinaView  extends AppCompatActivity {
                         return false;
 
                     case (R.id.borongaj):
-                        mDrawer.closeDrawers();
+                        startActivity(new Intent(medicinaView.this, borongajView.class), ActivityOptions.makeSceneTransitionAnimation(medicinaView.this).toBundle());
+                        finish();
                         return false;
                 }
                 return false;

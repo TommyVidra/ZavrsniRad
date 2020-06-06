@@ -95,6 +95,66 @@ public class ekonomijaView extends AppCompatActivity {
                         mDrawer.closeDrawers();
                         return false;
 
+                    case(R.id.alu):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.filozofski):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.fsb):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.ttf):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.sava):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.cvjetno):
+                        startActivity(new Intent(ekonomijaView.this, cvjetnoView.class), ActivityOptions.makeSceneTransitionAnimation(ekonomijaView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case (R.id.borongaj):
+                        startActivity(new Intent(ekonomijaView.this, borongajView.class), ActivityOptions.makeSceneTransitionAnimation(ekonomijaView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case(R.id.lascina):
+                        startActivity(new Intent(ekonomijaView.this, lascinaView.class), ActivityOptions.makeSceneTransitionAnimation(ekonomijaView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case(R.id.medicina):
+                        startActivity(new Intent(ekonomijaView.this, medicinaView.class), ActivityOptions.makeSceneTransitionAnimation(ekonomijaView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case(R.id.nsk):
+                        startActivity(new Intent(ekonomijaView.this, nskView.class), ActivityOptions.makeSceneTransitionAnimation(ekonomijaView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case(R.id.sumarstvo):
+                        startActivity(new Intent(ekonomijaView.this, sumarstvoView.class), ActivityOptions.makeSceneTransitionAnimation(ekonomijaView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case(R.id.tvz):
+                        startActivity(new Intent(ekonomijaView.this, tvzView.class), ActivityOptions.makeSceneTransitionAnimation(ekonomijaView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case(R.id.veterina):
+                        startActivity(new Intent(ekonomijaView.this, veterinaView.class), ActivityOptions.makeSceneTransitionAnimation(ekonomijaView.this).toBundle());
+                        finish();
+                        return false;
+
                     case (R.id.savska):
                         startActivity(new Intent(ekonomijaView.this, CanteenView_SC.class), ActivityOptions.makeSceneTransitionAnimation(ekonomijaView.this).toBundle());
                         finish();
@@ -103,10 +163,6 @@ public class ekonomijaView extends AppCompatActivity {
                     case (R.id.arh):
                         startActivity(new Intent(ekonomijaView.this, OdeonCanteenView.class), ActivityOptions.makeSceneTransitionAnimation(ekonomijaView.this).toBundle());
                         finish();
-                        return false;
-
-                    case (R.id.borongaj):
-                        mDrawer.closeDrawers();
                         return false;
                 }
                 return false;

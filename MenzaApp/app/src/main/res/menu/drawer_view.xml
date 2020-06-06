@@ -77,6 +77,11 @@
             android:title="TVZ" />
 
         <item
+            android:id="@+id/ttf"
+            android:icon="@drawable/canteen_icon"
+            android:title="TTF" />
+
+        <item
             android:id="@+id/veterina"
             android:icon="@drawable/canteen_icon"
             android:title="VETERINA" />

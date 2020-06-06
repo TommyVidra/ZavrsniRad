@@ -20,6 +20,8 @@ public class veterinaCrawler {
 
     public static void veterina() throws ExecutionException, InterruptedException {
 
+        choiceS = ""; sideS = ""; menuS = "";
+
         Connection.myTask task = new Connection.myTask();
         task.execute("http://www.sczg.unizg.hr/prehrana/restorani/veterina/");
         Document doc = task.get();

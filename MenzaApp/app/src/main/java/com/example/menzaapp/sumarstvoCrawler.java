@@ -21,6 +21,8 @@ public class sumarstvoCrawler{
 
     public static void sumarstvo() throws ExecutionException, InterruptedException {
 
+        menuS = ""; choiceS = ""; sideS = "";
+
         Connection.myTask task = new Connection.myTask();
         task.execute("http://www.sczg.unizg.hr/prehrana/restorani/sumarstvo/");
         Document doc = task.get();

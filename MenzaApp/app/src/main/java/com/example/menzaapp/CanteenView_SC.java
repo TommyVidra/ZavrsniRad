@@ -96,12 +96,66 @@ public class CanteenView_SC extends AppCompatActivity{
                 int id = item.getItemId();
                 switch(id)
                 {
-                    case(R.id.savska):
+                    case(R.id.fer):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.alu):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.filozofski):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.fsb):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.ttf):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.sava):
                         mDrawer.closeDrawers();
                         return false;
 
                     case (R.id.arh):
                         startActivity(new Intent(CanteenView_SC.this, OdeonCanteenView.class), ActivityOptions.makeSceneTransitionAnimation(CanteenView_SC.this).toBundle());
+                        finish();
+                        return false;
+
+                    case (R.id.borongaj):
+                        startActivity(new Intent(CanteenView_SC.this, borongajView.class), ActivityOptions.makeSceneTransitionAnimation(CanteenView_SC.this).toBundle());
+                        finish();
+                        return false;
+
+                    case(R.id.ekonomija):
+                        startActivity(new Intent(CanteenView_SC.this, ekonomijaView.class), ActivityOptions.makeSceneTransitionAnimation(CanteenView_SC.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.lascina):
+                        startActivity(new Intent(CanteenView_SC.this, lascinaView.class), ActivityOptions.makeSceneTransitionAnimation(CanteenView_SC.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.medicina):
+                        startActivity(new Intent(CanteenView_SC.this, medicinaView.class), ActivityOptions.makeSceneTransitionAnimation(CanteenView_SC.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.nsk):
+                        startActivity(new Intent(CanteenView_SC.this, nskView.class), ActivityOptions.makeSceneTransitionAnimation(CanteenView_SC.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.sumarstvo):
+                        startActivity(new Intent(CanteenView_SC.this, sumarstvoView.class), ActivityOptions.makeSceneTransitionAnimation(CanteenView_SC.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.tvz):
+                        startActivity(new Intent(CanteenView_SC.this, tvzView.class), ActivityOptions.makeSceneTransitionAnimation(CanteenView_SC.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.veterina):
+                        startActivity(new Intent(CanteenView_SC.this, veterinaView.class), ActivityOptions.makeSceneTransitionAnimation(CanteenView_SC.this).toBundle());
                         finish();
                         return false;
                 }
@@ -272,7 +326,7 @@ public class CanteenView_SC extends AppCompatActivity{
         veg = vegLayout.findViewById(R.id.heading);
         choice = choiceLayout.findViewById(R.id.heading);
         side = sideLayout.findViewById(R.id.heading);
-        menu.setText("MENU"); veg.setText("VEGETARIJANSKI MENU"); choice.setText("IZBOR JELA"); side.setText("PRILOZI");
+        menu.setText("MENU"); veg.setText("VEGETARIJANSKI MENU"); choice.setText("IZBOR"); side.setText("PRILOZI");
 
         LinearLayout menu1Layout = findViewById(R.id.menu_2);
         LinearLayout veg1Layout = findViewById(R.id.veg_2);
@@ -288,7 +342,7 @@ public class CanteenView_SC extends AppCompatActivity{
         vegDinner = veg1Layout.findViewById(R.id.heading);
         choiceDinner = choice1Layout.findViewById(R.id.heading);
         sideDinner = side1Layout.findViewById(R.id.heading);
-        menuDinner.setText("MENU"); vegDinner.setText("VEGETARIJANSKI MENU"); choiceDinner.setText("IZBOR JELA"); sideDinner.setText("PRILOZI");
+        menuDinner.setText("MENU"); vegDinner.setText("VEGETARIJANSKI MENU"); choiceDinner.setText("IZBOR"); sideDinner.setText("PRILOZI");
 
         initVisabilityGone(menu, choice, side, veg, menuContent, vegContent, choiceContent, sideContent);
         initVisabilityGone(menuDinner, choiceDinner, sideDinner, vegDinner, menuContentDinner, vegContentDinner, choiceContentDinner, sideContentDinner);

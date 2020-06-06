@@ -18,6 +18,8 @@ public class cvjetnoCrawler {
 
     public static void cvjetno() throws ExecutionException, InterruptedException { //Rucak samo?
 
+        menu =""; veg =""; nonMenus = "";
+
         Connection.myTask task = new Connection.myTask();
         task.execute("http://www.sczg.unizg.hr/prehrana/restorani/sd-cvjetno-naselje/");
         Document doc = task.get();

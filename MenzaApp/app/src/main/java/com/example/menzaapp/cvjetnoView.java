@@ -94,14 +94,30 @@ public class cvjetnoView extends AppCompatActivity {
                         mDrawer.closeDrawers();
                         return false;
 
-                    case(R.id.cvjetno):
+                    case(R.id.alu):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.filozofski):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.fsb):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.ttf):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.sava):
                         mDrawer.closeDrawers();
                         return false;
 
                     case (R.id.savska):
-                        startActivity(new Intent(cvjetnoView.this, CanteenView_SC.class), ActivityOptions.makeSceneTransitionAnimation(cvjetnoView.this).toBundle());
-                        finish();
-                        return false;
+                    startActivity(new Intent(cvjetnoView.this, CanteenView_SC.class), ActivityOptions.makeSceneTransitionAnimation(cvjetnoView.this).toBundle());
+                    finish();
+                    return false;
 
                     case (R.id.arh):
                         startActivity(new Intent(cvjetnoView.this, OdeonCanteenView.class), ActivityOptions.makeSceneTransitionAnimation(cvjetnoView.this).toBundle());
@@ -109,7 +125,36 @@ public class cvjetnoView extends AppCompatActivity {
                         return false;
 
                     case (R.id.borongaj):
-                        startActivity(new Intent(cvjetnoView.this, OdeonCanteenView.class), ActivityOptions.makeSceneTransitionAnimation(cvjetnoView.this).toBundle());
+                        startActivity(new Intent(cvjetnoView.this, borongajView.class), ActivityOptions.makeSceneTransitionAnimation(cvjetnoView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case(R.id.ekonomija):
+                        startActivity(new Intent(cvjetnoView.this, ekonomijaView.class), ActivityOptions.makeSceneTransitionAnimation(cvjetnoView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.lascina):
+                        startActivity(new Intent(cvjetnoView.this, lascinaView.class), ActivityOptions.makeSceneTransitionAnimation(cvjetnoView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.medicina):
+                        startActivity(new Intent(cvjetnoView.this, medicinaView.class), ActivityOptions.makeSceneTransitionAnimation(cvjetnoView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.nsk):
+                        startActivity(new Intent(cvjetnoView.this, nskView.class), ActivityOptions.makeSceneTransitionAnimation(cvjetnoView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.sumarstvo):
+                        startActivity(new Intent(cvjetnoView.this, sumarstvoView.class), ActivityOptions.makeSceneTransitionAnimation(cvjetnoView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.tvz):
+                        startActivity(new Intent(cvjetnoView.this, tvzView.class), ActivityOptions.makeSceneTransitionAnimation(cvjetnoView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.veterina):
+                        startActivity(new Intent(cvjetnoView.this, veterinaView.class), ActivityOptions.makeSceneTransitionAnimation(cvjetnoView.this).toBundle());
                         finish();
                         return false;
                 }

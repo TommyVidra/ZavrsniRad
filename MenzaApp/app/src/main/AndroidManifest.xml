@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".CanteenMainView">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,12 +25,12 @@
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".CanteenMainView" >
-            <!--Default Intent Filter-->
-            <intent-filter>
-                <action android:name="android.intent.action.DEFAULT" />
-            </intent-filter>
-        </activity>
+<!--        <activity android:name=".CanteenMainView" >-->
+<!--            &lt;!&ndash;Default Intent Filter&ndash;&gt;-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.DEFAULT" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
         <activity android:name=".OdeonCanteenView" >
             <!--Default Intent Filter-->
             <intent-filter>

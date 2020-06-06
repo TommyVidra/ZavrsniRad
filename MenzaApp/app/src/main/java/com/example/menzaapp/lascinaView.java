@@ -93,8 +93,69 @@ public class lascinaView extends AppCompatActivity{
                 int id = item.getItemId();
                 switch(id)
                 {
-                    case(R.id.savska):
+                    case(R.id.fer):
                         mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.alu):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.filozofski):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.fsb):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.ttf):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.sava):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.cvjetno):
+                        startActivity(new Intent(lascinaView.this, cvjetnoView.class), ActivityOptions.makeSceneTransitionAnimation(lascinaView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case (R.id.borongaj):
+                        startActivity(new Intent(lascinaView.this, borongajView.class), ActivityOptions.makeSceneTransitionAnimation(lascinaView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case(R.id.ekonomija):
+                        startActivity(new Intent(lascinaView.this, ekonomijaView.class), ActivityOptions.makeSceneTransitionAnimation(lascinaView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case(R.id.medicina):
+                        startActivity(new Intent(lascinaView.this, medicinaView.class), ActivityOptions.makeSceneTransitionAnimation(lascinaView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.nsk):
+                        startActivity(new Intent(lascinaView.this, nskView.class), ActivityOptions.makeSceneTransitionAnimation(lascinaView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.sumarstvo):
+                        startActivity(new Intent(lascinaView.this, sumarstvoView.class), ActivityOptions.makeSceneTransitionAnimation(lascinaView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.tvz):
+                        startActivity(new Intent(lascinaView.this, tvzView.class), ActivityOptions.makeSceneTransitionAnimation(lascinaView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.veterina):
+                        startActivity(new Intent(lascinaView.this, veterinaView.class), ActivityOptions.makeSceneTransitionAnimation(lascinaView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case (R.id.savska):
+                        startActivity(new Intent(lascinaView.this, CanteenView_SC.class), ActivityOptions.makeSceneTransitionAnimation(lascinaView.this).toBundle());
+                        finish();
                         return false;
 
                     case (R.id.arh):
@@ -247,7 +308,7 @@ public class lascinaView extends AppCompatActivity{
         veg = vegLayout.findViewById(R.id.heading);
         choice = choiceLayout.findViewById(R.id.heading);
         side = sideLayout.findViewById(R.id.heading);
-        menu.setText("MENU"); choice.setText("IZBOR JELA"); side.setText("PRILOZI");
+        menu.setText("MENU"); choice.setText("IZBOR"); side.setText("PRILOZI");
 
         LinearLayout menu1Layout = findViewById(R.id.menu_2);
         LinearLayout veg1Layout = findViewById(R.id.veg_2);
@@ -263,7 +324,7 @@ public class lascinaView extends AppCompatActivity{
         vegDinner = veg1Layout.findViewById(R.id.heading);
         choiceDinner = choice1Layout.findViewById(R.id.heading);
         sideDinner = side1Layout.findViewById(R.id.heading);
-        menuDinner.setText("MENU"); choiceDinner.setText("IZBOR JELA"); sideDinner.setText("PRILOZI");
+        menuDinner.setText("MENU"); choiceDinner.setText("IZBOR"); sideDinner.setText("PRILOZI");
 
         initVisabilityGone(menu, choice, side, veg, menuContent, vegContent, choiceContent, sideContent);
         initVisabilityGone(menuDinner, choiceDinner, sideDinner, vegDinner, menuContentDinner, vegContentDinner, choiceContentDinner, sideContentDinner);

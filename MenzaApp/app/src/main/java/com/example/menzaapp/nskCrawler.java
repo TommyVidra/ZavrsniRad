@@ -19,6 +19,7 @@ public class nskCrawler {
 
     public static void nsk() throws ExecutionException, InterruptedException {
 
+        menuS = ""; vegS = ""; choiceS = ""; sideS = "";
 
         Connection.myTask task = new Connection.myTask();
         task.execute("http://www.sczg.unizg.hr/prehrana/restorani/nsk/");

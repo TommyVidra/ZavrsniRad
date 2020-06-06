@@ -23,6 +23,8 @@ public class ekonomijaCrawler {
 
     public static void ekonomija() throws ExecutionException, InterruptedException {
 
+        menu = ""; veg = ""; choice = ""; side = "";
+
         Connection.myTask task = new Connection.myTask();
         task.execute("http://www.sczg.unizg.hr/prehrana/restorani/ekonomija/");
         Document doc = task.get();

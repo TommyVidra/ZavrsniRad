@@ -87,15 +87,69 @@ public class CassandraCanteenView extends AppCompatActivity {
                 int id = item.getItemId();
                 switch(id)
                 {
-                    case(R.id.fer):
+                    case(R.id.alu):
                         mDrawer.closeDrawers();
                         return false;
 
+                    case(R.id.filozofski):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.fsb):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.ttf):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.sava):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.cvjetno):
+                        startActivity(new Intent(CassandraCanteenView.this, cvjetnoView.class), ActivityOptions.makeSceneTransitionAnimation(CassandraCanteenView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.ekonomija):
+                        startActivity(new Intent(CassandraCanteenView.this, ekonomijaView.class), ActivityOptions.makeSceneTransitionAnimation(CassandraCanteenView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.lascina):
+                        startActivity(new Intent(CassandraCanteenView.this, lascinaView.class), ActivityOptions.makeSceneTransitionAnimation(CassandraCanteenView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.medicina):
+                        startActivity(new Intent(CassandraCanteenView.this, medicinaView.class), ActivityOptions.makeSceneTransitionAnimation(CassandraCanteenView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.nsk):
+                        startActivity(new Intent(CassandraCanteenView.this, nskView.class), ActivityOptions.makeSceneTransitionAnimation(CassandraCanteenView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.sumarstvo):
+                        startActivity(new Intent(CassandraCanteenView.this, sumarstvoView.class), ActivityOptions.makeSceneTransitionAnimation(CassandraCanteenView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.tvz):
+                        startActivity(new Intent(CassandraCanteenView.this, tvzView.class), ActivityOptions.makeSceneTransitionAnimation(CassandraCanteenView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.veterina):
+                        startActivity(new Intent(CassandraCanteenView.this, veterinaView.class), ActivityOptions.makeSceneTransitionAnimation(CassandraCanteenView.this).toBundle());
+                        finish();
+                        return false;
+                    case (R.id.borongaj):
+                        startActivity(new Intent(CassandraCanteenView.this, borongajView.class), ActivityOptions.makeSceneTransitionAnimation(CassandraCanteenView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.fer):
+                        mDrawer.closeDrawers();
+                        return false;
                     case (R.id.savska):
                         startActivity(new Intent(CassandraCanteenView.this, CanteenView_SC.class), ActivityOptions.makeSceneTransitionAnimation(CassandraCanteenView.this).toBundle());
                         finish();
                         return false;
-
                     case (R.id.arh):
                         startActivity(new Intent(CassandraCanteenView.this, OdeonCanteenView.class), ActivityOptions.makeSceneTransitionAnimation(CassandraCanteenView.this).toBundle());
                         finish();

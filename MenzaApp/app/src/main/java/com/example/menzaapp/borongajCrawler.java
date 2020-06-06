@@ -21,6 +21,8 @@ public class borongajCrawler {
 
     public static void borongaj() throws ExecutionException, InterruptedException {
 
+        lunch = ""; veg = ""; lunchChoiceL = ""; lunchSideL = "";
+
         Connection.myTask task = new Connection.myTask();
         task.execute("http://www.sczg.unizg.hr/prehrana/restorani/zuk-borongaj/");
         Document doc = task.get();

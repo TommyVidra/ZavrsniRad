@@ -93,6 +93,26 @@ public class tvzView extends AppCompatActivity {
                         mDrawer.closeDrawers();
                         return false;
 
+                    case(R.id.alu):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.filozofski):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.fsb):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.ttf):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.sava):
+                        mDrawer.closeDrawers();
+                        return false;
+
                     case (R.id.savska):
                         startActivity(new Intent(tvzView.this, CanteenView_SC.class), ActivityOptions.makeSceneTransitionAnimation(tvzView.this).toBundle());
                         finish();
@@ -103,8 +123,42 @@ public class tvzView extends AppCompatActivity {
                         finish();
                         return false;
 
+                    case(R.id.cvjetno):
+                        startActivity(new Intent(tvzView.this, cvjetnoView.class), ActivityOptions.makeSceneTransitionAnimation(tvzView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case(R.id.ekonomija):
+                        startActivity(new Intent(tvzView.this, ekonomijaView.class), ActivityOptions.makeSceneTransitionAnimation(tvzView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.lascina):
+                        startActivity(new Intent(tvzView.this, lascinaView.class), ActivityOptions.makeSceneTransitionAnimation(tvzView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.medicina):
+                        startActivity(new Intent(tvzView.this, medicinaView.class), ActivityOptions.makeSceneTransitionAnimation(tvzView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case(R.id.nsk):
+                        startActivity(new Intent(tvzView.this, nskView.class), ActivityOptions.makeSceneTransitionAnimation(tvzView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case(R.id.sumarstvo):
+                        startActivity(new Intent(tvzView.this, sumarstvoView.class), ActivityOptions.makeSceneTransitionAnimation(tvzView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case(R.id.veterina):
+                        startActivity(new Intent(tvzView.this, veterinaView.class), ActivityOptions.makeSceneTransitionAnimation(tvzView.this).toBundle());
+                        finish();
+                        return false;
+
                     case (R.id.borongaj):
-                        mDrawer.closeDrawers();
+                        startActivity(new Intent(tvzView.this, borongajView.class), ActivityOptions.makeSceneTransitionAnimation(tvzView.this).toBundle());
+                        finish();
                         return false;
                 }
                 return false;

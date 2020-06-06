@@ -1,12 +1,17 @@
 package com.example.menzaapp;
 
 import android.app.ActivityOptions;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,6 +25,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 public class CanteenMainView extends AppCompatActivity {
 
@@ -51,9 +57,10 @@ public class CanteenMainView extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.canteen_main);
 
-        // Set a Toolbar to replace the ActionBar.
+        setContentView(R.layout.canteen_main);
+        final LinearLayout layout = new LinearLayout(this);
+                // Set a Toolbar to replace the ActionBar.
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -77,12 +84,6 @@ public class CanteenMainView extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 animateIntent(arh);
-            }
-        });
-        fer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                animateIntent(fer);
             }
         });
         borongaj.setOnClickListener(new View.OnClickListener() {
@@ -140,11 +141,62 @@ public class CanteenMainView extends AppCompatActivity {
             }
         });
 
+        alu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar snackbar = Snackbar
+                        .make(v, "Menza još nije nadodana", Snackbar.LENGTH_LONG);
+                snackbar.show();
+            }
+        });
+        ttf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar snackbar = Snackbar
+                        .make(v, "Menza još nije nadodana", Snackbar.LENGTH_LONG);
+                snackbar.show();
+            }
+        });
+        ffzg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar snackbar = Snackbar
+                        .make(v, "Menza još nije nadodana", Snackbar.LENGTH_LONG);
+                snackbar.show();
+            }
+        });
+        fsb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar snackbar = Snackbar
+                        .make(v, "Menza još nije nadodana", Snackbar.LENGTH_LONG);
+                snackbar.show();
+            }
+        });
+        fer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar snackbar = Snackbar
+                        .make(v, "Menza još nije nadodana", Snackbar.LENGTH_LONG);
+                snackbar.show();
+            }
+        });
+        sava.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar snackbar = Snackbar
+                        .make(v, "Menza još nije nadodana", Snackbar.LENGTH_LONG);
+                snackbar.show();
+            }
+        });
+
         nvDrawer = findViewById(R.id.nvView);
         nvDrawer.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
+                Snackbar snackbar = Snackbar
+                        .make(findViewById(R.id.alu_card), "Menza još nije nadodana", Snackbar.LENGTH_LONG);
                 switch (id)
                 {
                     case(R.id.savska):
@@ -152,9 +204,6 @@ public class CanteenMainView extends AppCompatActivity {
                         break;
                     case(R.id.arh):
                         startActivity(new Intent(CanteenMainView.this, OdeonCanteenView.class), ActivityOptions.makeSceneTransitionAnimation(CanteenMainView.this).toBundle());
-                        break;
-                    case(R.id.fer):
-                        startActivity(new Intent(CanteenMainView.this, CassandraCanteenView.class), ActivityOptions.makeSceneTransitionAnimation(CanteenMainView.this).toBundle());
                         break;
                     case(R.id.borongaj):
                         startActivity(new Intent(CanteenMainView.this, borongajView.class), ActivityOptions.makeSceneTransitionAnimation(CanteenMainView.this).toBundle());
@@ -182,6 +231,24 @@ public class CanteenMainView extends AppCompatActivity {
                         break;
                     case(R.id.veterina):
                         startActivity(new Intent(CanteenMainView.this, veterinaView.class), ActivityOptions.makeSceneTransitionAnimation(CanteenMainView.this).toBundle());
+                        break;
+                    case(R.id.alu):
+                        snackbar.show();
+                        break;
+                    case(R.id.filozofski):
+                        snackbar.show();
+                        break;
+                    case(R.id.fsb):
+                        snackbar.show();
+                        break;
+                    case(R.id.sava):
+                        snackbar.show();
+                        break;
+                    case(R.id.ttf):
+                        snackbar.show();
+                        break;
+                    case(R.id.fer):
+                        snackbar.show();
                         break;
                 }
                 return false;
@@ -247,9 +314,6 @@ public class CanteenMainView extends AppCompatActivity {
                 break;
             case (R.id.savska_card):
                 intent = new Intent(this, CanteenView_SC.class);
-                break;
-            case (R.id.fer_card):
-                intent = new Intent(this, CassandraCanteenView.class);
                 break;
             case (R.id.borongaj_card):
                 intent = new Intent(this, borongajView.class);

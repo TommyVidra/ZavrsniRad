@@ -19,6 +19,8 @@ public class tvzCrawler{
 
     public static void tvz() throws ExecutionException, InterruptedException {
 
+        menuS = ""; choiceS = "";
+
         Connection.myTask task = new Connection.myTask();
         task.execute("http://www.sczg.unizg.hr/prehrana/restorani/restoran-tvz/");
         Document doc = task.get();

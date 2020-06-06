@@ -94,6 +94,26 @@ public class veterinaView extends AppCompatActivity {
                         mDrawer.closeDrawers();
                         return false;
 
+                    case(R.id.alu):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.filozofski):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.fsb):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.ttf):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.sava):
+                        mDrawer.closeDrawers();
+                        return false;
+
                     case (R.id.savska):
                         startActivity(new Intent(veterinaView.this, CanteenView_SC.class), ActivityOptions.makeSceneTransitionAnimation(veterinaView.this).toBundle());
                         finish();
@@ -104,8 +124,42 @@ public class veterinaView extends AppCompatActivity {
                         finish();
                         return false;
 
+                    case(R.id.cvjetno):
+                        startActivity(new Intent(veterinaView.this, cvjetnoView.class), ActivityOptions.makeSceneTransitionAnimation(veterinaView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case(R.id.ekonomija):
+                        startActivity(new Intent(veterinaView.this, ekonomijaView.class), ActivityOptions.makeSceneTransitionAnimation(veterinaView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.lascina):
+                        startActivity(new Intent(veterinaView.this, lascinaView.class), ActivityOptions.makeSceneTransitionAnimation(veterinaView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.medicina):
+                        startActivity(new Intent(veterinaView.this, medicinaView.class), ActivityOptions.makeSceneTransitionAnimation(veterinaView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case(R.id.nsk):
+                        startActivity(new Intent(veterinaView.this, nskView.class), ActivityOptions.makeSceneTransitionAnimation(veterinaView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case(R.id.sumarstvo):
+                        startActivity(new Intent(veterinaView.this, sumarstvoView.class), ActivityOptions.makeSceneTransitionAnimation(veterinaView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case(R.id.tvz):
+                        startActivity(new Intent(veterinaView.this, tvzView.class), ActivityOptions.makeSceneTransitionAnimation(veterinaView.this).toBundle());
+                        finish();
+                        return false;
+
                     case (R.id.borongaj):
-                        mDrawer.closeDrawers();
+                        startActivity(new Intent(veterinaView.this, borongajView.class), ActivityOptions.makeSceneTransitionAnimation(veterinaView.this).toBundle());
+                        finish();
                         return false;
                 }
                 return false;

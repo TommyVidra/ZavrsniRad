@@ -101,15 +101,76 @@ public class OdeonCanteenView extends AppCompatActivity {
                         mDrawer.closeDrawers();
                         return false;
 
+                    case(R.id.fer):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.alu):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.filozofski):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.fsb):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.ttf):
+                        mDrawer.closeDrawers();
+                        return false;
+
+                    case(R.id.sava):
+                        mDrawer.closeDrawers();
+                        return false;
+
                     case (R.id.savska):
                         startActivity(new Intent(OdeonCanteenView.this, CanteenView_SC.class), ActivityOptions.makeSceneTransitionAnimation(OdeonCanteenView.this).toBundle());
                         finish();
                         return false;
 
-                    case (R.id.fer):
-                        startActivity(new Intent(OdeonCanteenView.this, CassandraCanteenView.class), ActivityOptions.makeSceneTransitionAnimation(OdeonCanteenView.this).toBundle());
+                    case(R.id.cvjetno):
+                        startActivity(new Intent(OdeonCanteenView.this, cvjetnoView.class), ActivityOptions.makeSceneTransitionAnimation(OdeonCanteenView.this).toBundle());
                         finish();
                         return false;
+
+                    case(R.id.ekonomija):
+                        startActivity(new Intent(OdeonCanteenView.this, ekonomijaView.class), ActivityOptions.makeSceneTransitionAnimation(OdeonCanteenView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.lascina):
+                        startActivity(new Intent(OdeonCanteenView.this, lascinaView.class), ActivityOptions.makeSceneTransitionAnimation(OdeonCanteenView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.medicina):
+                        startActivity(new Intent(OdeonCanteenView.this, medicinaView.class), ActivityOptions.makeSceneTransitionAnimation(OdeonCanteenView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case(R.id.nsk):
+                        startActivity(new Intent(OdeonCanteenView.this, nskView.class), ActivityOptions.makeSceneTransitionAnimation(OdeonCanteenView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case(R.id.sumarstvo):
+                        startActivity(new Intent(OdeonCanteenView.this, sumarstvoView.class), ActivityOptions.makeSceneTransitionAnimation(OdeonCanteenView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.tvz):
+                        startActivity(new Intent(OdeonCanteenView.this, tvzView.class), ActivityOptions.makeSceneTransitionAnimation(OdeonCanteenView.this).toBundle());
+                        finish();
+                        return false;
+                    case(R.id.veterina):
+                        startActivity(new Intent(OdeonCanteenView.this, veterinaView.class), ActivityOptions.makeSceneTransitionAnimation(OdeonCanteenView.this).toBundle());
+                        finish();
+                        return false;
+
+                    case (R.id.borongaj):
+                        startActivity(new Intent(OdeonCanteenView.this, borongajView.class), ActivityOptions.makeSceneTransitionAnimation(OdeonCanteenView.this).toBundle());
+                        finish();
+                        return false;
+
                 }
                 return false;
             }

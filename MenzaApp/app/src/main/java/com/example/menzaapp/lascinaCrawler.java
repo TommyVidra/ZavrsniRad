@@ -27,6 +27,8 @@ public class lascinaCrawler {
 
     public static void lascina() throws IOException, ExecutionException, InterruptedException {
 
+        dinnerMenuS = ""; dinnerChoiceS = ""; lunchMenuS = ""; dinnerSideS = ""; lunchSideS = ""; lunchChoiceS = "";
+
         Connection.myTask task = new Connection.myTask();
         task.execute("http://www.sczg.unizg.hr/prehrana/restorani/sd-lascina/");
         Document doc = task.get();

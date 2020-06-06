@@ -21,6 +21,8 @@ public class medCrawler {
 
     public static void med() throws ExecutionException, InterruptedException {
 
+        menuS = ""; choiceS = ""; sideS = "";
+
         Connection.myTask task = new Connection.myTask();
         task.execute("http://www.sczg.unizg.hr/prehrana/restorani/medicina/");
         Document doc = task.get();
