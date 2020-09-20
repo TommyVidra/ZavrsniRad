@@ -94,7 +94,6 @@ public class Crawler {
         Connection.myTask task = new Connection.myTask();
         task.execute("http://odeon.hr/dnevni-meni-studentska-menza/");
         Document odeon = task.get();
-//        Document odeon = Jsoup.connect("http://odeon.hr/dnevni-meni-studentska-menza/").get(); //savksa
         Elements menus = odeon.select("div[class=entry-content clearfix]");
 
         Element date = menus.select("h3").first();
@@ -115,9 +114,9 @@ public class Crawler {
         LinkedList<String> menusList = new LinkedList<>();
 
         Connection.myTask task = new Connection.myTask();
-        task.execute("http://192.168.0.19:8080"); //TO DO promjeniti nakon podizanja stranice ili prilikom promjene interneta
+        task.execute("http://www.cassandra.hr/studentski-menu/");
 
-        Document cassandra = task.get(); //savksa
+        Document cassandra = task.get();
         System.out.println(cassandra);
         Elements menus = cassandra.select("div[class=entry-content]");
         Elements content = menus.select("p").select("b");

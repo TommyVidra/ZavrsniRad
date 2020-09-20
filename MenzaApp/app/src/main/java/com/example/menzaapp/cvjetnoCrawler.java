@@ -15,7 +15,7 @@ public class cvjetnoCrawler {
     public static String menu ="";
     public static String veg ="";
     public static String nonMenus = "";
-
+    //NE RADI - Kod treba ispraviti
     public static void cvjetno() throws ExecutionException, InterruptedException { //Rucak samo?
 
         menu =""; veg =""; nonMenus = "";
@@ -26,10 +26,14 @@ public class cvjetnoCrawler {
 
         Elements content = doc.select("div[class=place]");
         Elements menuContent = content.select("h6");
+        System.out.println(menuContent);
 
         menus.add(afterFormat(menuFoodSplit(menuContent.first().text().split(":")[1]).replaceAll("\n+", "\n")));
+        System.out.println(menus);
         nonMenus += afterFormat(menuFoodSplit(menuContent.get(1).text().split(":")[1]).replaceAll("\n+", "\n"));
+        System.out.println(nonMenus);
         menus.add(afterFormat(menuFoodSplit(menuContent.get(2).text().split(":")[1]).replaceAll("\n+", "\n")));
+        System.out.println(menus);
 
         menu = menus.get(0);
         veg = menus.get(1);

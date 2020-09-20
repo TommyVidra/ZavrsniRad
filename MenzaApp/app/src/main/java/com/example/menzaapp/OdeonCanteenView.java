@@ -84,11 +84,11 @@ public class OdeonCanteenView extends AppCompatActivity {
         menu2Content.setText(c.menusL.get(1));
         menu3Content.setText(c.menusL.get(2));
         menu4Content.setText(c.menusL.get(3));
-        menu5Content.setText(c.menusL.get(4));
-        menu6Content.setText(c.menusL.get(5));
-        menu7Content.setText(c.menusL.get(6));
-        menu8Content.setText(c.menusL.get(7));
-        choiceContent.setText(c.menusL.get(8));
+        choiceContent.setText(c.menusL.get(4));
+//        menu6Content.setText(c.menusL.get(5));
+//        menu7Content.setText(c.menusL.get(6));
+//        menu8Content.setText(c.menusL.get(7));
+//        choiceContent.setText(c.menusL.get(8));
 
 
         nvDrawer.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {

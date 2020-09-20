@@ -176,9 +176,7 @@ public class CanteenMainView extends AppCompatActivity {
         fer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar snackbar = Snackbar
-                        .make(v, "Menza još nije nadodana", Snackbar.LENGTH_LONG);
-                snackbar.show();
+                animateIntent(fer);
             }
         });
         sava.setOnClickListener(new View.OnClickListener() {
@@ -248,7 +246,7 @@ public class CanteenMainView extends AppCompatActivity {
                         snackbar.show();
                         break;
                     case(R.id.fer):
-                        snackbar.show();
+                        startActivity(new Intent(CanteenMainView.this, CassandraCanteenView.class), ActivityOptions.makeSceneTransitionAnimation(CanteenMainView.this).toBundle());
                         break;
                 }
                 return false;
@@ -341,6 +339,9 @@ public class CanteenMainView extends AppCompatActivity {
                 break;
             case (R.id.veterina_card):
                 intent = new Intent(this, veterinaView.class);
+                break;
+            case (R.id.fer_card):
+                intent = new Intent(this, CassandraCanteenView.class);
                 break;
         }
         String transitionName = getString(R.string.transition_string);
